@@ -1,0 +1,752 @@
+/* =========================
+   ACHIEVEMENTS SECTION
+========================= */
+
+.achievements {
+  padding: 90px 8%;
+  background: #ffffff;
+}
+
+.achievements-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+/* =========================
+   MAIN HEADING
+========================= */
+
+.achievements-heading {
+  max-width: 750px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.achievements-small-title {
+  color: #d97706;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.achievements-heading h2 {
+  margin: 0 0 18px;
+  font-size: 40px;
+  color: #222;
+}
+
+.achievements-heading h2 span {
+  color: #d97706;
+}
+
+.achievements-heading > p {
+  margin: 0;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================
+   ACADEMIC CARD
+========================= */
+
+.academic-card {
+  max-width: 750px;
+  margin: auto;
+
+  padding: 40px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 30px;
+
+  background: #faf7f2;
+
+  border: 1px solid #eadfce;
+
+  border-radius: 10px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.academic-icon {
+  width: 90px;
+  height: 90px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  font-size: 45px;
+}
+
+.academic-content h3 {
+  margin: 0 0 10px;
+
+  font-size: 28px;
+
+  color: #222;
+}
+
+.academic-content p {
+  margin: 0 0 20px;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ACADEMIC BUTTON
+========================= */
+
+.academic-button {
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #d97706;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.academic-button:hover {
+  background: #b45309;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   OTHER ACHIEVEMENTS
+========================= */
+
+.other-achievements {
+  margin-top: 90px;
+}
+
+.other-achievements-heading {
+  text-align: center;
+
+  margin-bottom: 45px;
+}
+
+.other-small-title {
+  color: #d97706;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 10px;
+}
+
+.other-achievements-heading h3 {
+  margin: 0 0 12px;
+
+  font-size: 34px;
+
+  color: #222;
+}
+
+.other-achievements-heading h3 span {
+  color: #d97706;
+}
+
+.other-achievements-heading > p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   ACHIEVEMENT GRID
+========================= */
+
+.achievements-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* =========================
+   ACHIEVEMENT CARD
+========================= */
+
+.achievement-card {
+  background: #faf7f2;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+  transition: 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   CARD IMAGE
+========================= */
+
+.achievement-card-image {
+  width: 100%;
+  height: 230px;
+
+  overflow: hidden;
+
+  background: #f0ece6;
+}
+
+.achievement-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.4s ease;
+}
+
+.achievement-card:hover
+.achievement-card-image img {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   PLACEHOLDER
+========================= */
+
+.achievement-image-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 45px;
+}
+
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.achievement-card-content {
+  padding: 22px 24px;
+}
+
+.achievement-card-content h4 {
+  margin: 0 0 10px;
+
+  font-size: 20px;
+
+  color: #222;
+}
+
+.achievement-card-content span {
+  color: #d97706;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.achievements-empty {
+  min-height: 220px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #faf7f2;
+
+  border: 1px dashed #d8cfc2;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.achievements-empty-icon {
+  font-size: 45px;
+
+  margin-bottom: 10px;
+}
+
+.achievements-empty h4 {
+  margin: 0 0 8px;
+
+  font-size: 20px;
+
+  color: #333;
+}
+
+.achievements-empty p {
+  margin: 0;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   MODAL OVERLAY
+========================= */
+
+.achievement-modal-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 30px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  z-index: 2000;
+
+  overflow-y: auto;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.achievement-modal {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 900px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+
+  padding: 40px;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.achievement-close {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f2f2f2;
+
+  color: #333;
+
+  font-size: 27px;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition: 0.3s;
+}
+
+.achievement-close:hover {
+  background: #d97706;
+
+  color: white;
+}
+
+
+/* =========================
+   ACADEMIC MODAL HEADING
+========================= */
+
+.academic-modal-heading {
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+.academic-modal-heading p {
+  margin: 0 0 8px;
+
+  color: #d97706;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.academic-modal-heading h2 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 30px;
+}
+
+
+/* =========================
+   SCIENCE / COMMERCE
+========================= */
+
+.stream-selection {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+}
+
+.stream-button {
+  padding: 22px;
+
+  border: 1px solid #eadfce;
+
+  border-radius: 7px;
+
+  background: #faf7f2;
+
+  color: #333;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.stream-button:hover {
+  background: #d97706;
+
+  color: white;
+
+  border-color: #d97706;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button {
+  margin-bottom: 20px;
+
+  padding: 8px 15px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #d97706;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   ACADEMIC DETAILS
+========================= */
+
+.academic-details h3 {
+  margin: 0 0 25px;
+
+  font-size: 27px;
+
+  color: #222;
+}
+
+
+/* =========================
+   ACADEMIC TABLE
+========================= */
+
+.academic-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 7px;
+}
+
+.academic-table {
+  width: 100%;
+
+  min-width: 700px;
+
+  border-collapse: collapse;
+}
+
+.academic-table th {
+  padding: 16px 14px;
+
+  background: #faf7f2;
+
+  color: #333;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.academic-table td {
+  padding: 18px 14px;
+
+  color: #666;
+
+  font-size: 14px;
+
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.academic-table tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================
+   OTHER ACHIEVEMENT IMAGE
+========================= */
+
+.achievement-main-image {
+  width: 100%;
+
+  height: 400px;
+
+  overflow: hidden;
+
+  border-radius: 7px;
+
+  margin-bottom: 30px;
+}
+
+.achievement-main-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.achievement-description {
+  padding: 0 5px;
+}
+
+.achievement-description h2 {
+  margin: 0 0 18px;
+
+  font-size: 30px;
+
+  color: #222;
+}
+
+.achievement-description > p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+}
+
+
+/* =========================
+   POPUP GALLERY
+========================= */
+
+.achievement-popup-gallery {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.achievement-popup-gallery img {
+  width: 100%;
+
+  height: 150px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .achievements {
+    padding: 70px 6%;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .achievements {
+    padding: 60px 6%;
+  }
+
+  .achievements-heading h2 {
+    font-size: 32px;
+  }
+
+  .academic-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 30px 20px;
+  }
+
+  .academic-content h3 {
+    font-size: 24px;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card-image {
+    height: 240px;
+  }
+
+  .stream-selection {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-modal-overlay {
+    padding: 15px;
+  }
+
+  .achievement-modal {
+    padding: 30px 20px;
+  }
+
+  .academic-table {
+    min-width: 700px;
+  }
+
+  .achievement-main-image {
+    height: 250px;
+  }
+
+  .achievement-popup-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}

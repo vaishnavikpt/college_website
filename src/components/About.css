@@ -1,0 +1,494 @@
+/* =========================
+   ABOUT SECTION
+========================= */
+
+.about {
+  padding: 90px 8%;
+  background: #ffffff;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+  align-items: center;
+}
+
+
+/* =========================
+   ABOUT IMAGE
+========================= */
+
+.about-image img {
+  width: 100%;
+  height: 420px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   ABOUT CONTENT
+========================= */
+
+.about-content {
+  color: #333;
+}
+
+.about-small-title {
+  color: #d97706;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 12px;
+}
+
+.about-content h2 {
+  font-size: 38px;
+
+  line-height: 1.2;
+
+  margin: 0 0 25px;
+
+  color: #222;
+}
+
+.about-content h2 span {
+  display: block;
+  color: #d97706;
+}
+
+.about-content > p {
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #666;
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================
+   HIGHLIGHTS
+========================= */
+
+.about-highlights {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 30px;
+}
+
+.about-highlights div {
+  flex: 1;
+
+  padding: 18px;
+
+  background: #faf7f2;
+
+  border-left: 3px solid #d97706;
+}
+
+.about-highlights h3 {
+  margin: 0 0 5px;
+
+  font-size: 20px;
+
+  color: #222;
+}
+
+.about-highlights p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   KNOW MORE BUTTON
+========================= */
+
+.know-more-button {
+  margin-top: 30px;
+
+  padding: 13px 30px;
+
+  border: none;
+  border-radius: 4px;
+
+  background: #d97706;
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.know-more-button:hover {
+  background: #b45309;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   MANAGEMENT OVERLAY
+========================= */
+
+.management-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  z-index: 2000;
+
+  overflow-y: auto;
+}
+
+
+/* =========================
+   MANAGEMENT POPUP
+========================= */
+
+.management-popup {
+  position: relative;
+
+  width: 100%;
+  max-width: 1100px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  padding: 50px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.management-close {
+  position: absolute;
+
+  top: 18px;
+  right: 22px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  color: #333;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.management-close:hover {
+  background: #d97706;
+
+  color: #ffffff;
+}
+
+
+/* =========================
+   MANAGEMENT HEADING
+========================= */
+
+.management-heading {
+  text-align: center;
+
+  max-width: 700px;
+
+  margin: 0 auto 45px;
+}
+
+.management-small-title {
+  color: #d97706;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 12px;
+}
+
+.management-heading h2 {
+  font-size: 40px;
+
+  color: #222;
+
+  margin: 0 0 15px;
+}
+
+.management-heading h2 span {
+  color: #d97706;
+}
+
+.management-heading > p {
+  color: #666;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================
+   MANAGEMENT GRID
+========================= */
+
+.management-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* =========================
+   MANAGEMENT CARD
+========================= */
+
+.management-card {
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  border: 1px solid #eeeeee;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+  transition: 0.3s ease;
+}
+
+.management-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   PERSON IMAGE
+========================= */
+
+.management-image {
+  width: 100%;
+  height: 250px;
+
+  background: #f7f4ef;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.person-placeholder {
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 60px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   MANAGEMENT INFO
+========================= */
+
+.management-info {
+  padding: 22px;
+
+  text-align: center;
+}
+
+.management-info h3 {
+  margin: 0 0 7px;
+
+  font-size: 21px;
+
+  color: #222;
+}
+
+.management-info h4 {
+  margin: 0 0 12px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #d97706;
+}
+
+.management-info p {
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color: #777;
+}
+
+
+/* =========================
+   MANAGEMENT NOTE
+========================= */
+
+.management-note {
+  margin-top: 40px;
+
+  padding: 25px 30px;
+
+  background: #faf7f2;
+
+  border-left: 4px solid #d97706;
+}
+
+.management-note h3 {
+  margin: 0 0 10px;
+
+  font-size: 22px;
+
+  color: #222;
+}
+
+.management-note p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .about-container {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .management-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .about {
+    padding: 60px 6%;
+  }
+
+  .about-image img {
+    height: 300px;
+  }
+
+  .about-content h2 {
+    font-size: 30px;
+  }
+
+  .about-highlights {
+    flex-direction: column;
+  }
+
+  .management-overlay {
+    padding: 15px;
+  }
+
+  .management-popup {
+    padding: 40px 20px 25px;
+
+    max-height: 95vh;
+  }
+
+  .management-heading h2 {
+    font-size: 30px;
+  }
+
+  .management-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .management-image {
+    height: 230px;
+  }
+
+}
