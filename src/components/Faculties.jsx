@@ -2,125 +2,117 @@ import { useState } from "react";
 import "./Faculties.css";
 
 function Faculties() {
+  // Temporary data for now.
+  // Later, this will come from the database.
+  const faculties = [
+    {
+      name: "Faculty Name",
+      designation: "Principal",
+      qualification: "M.A., B.Ed.",
+      image: "/images/faculty1.jpg",
+    },
+    {
+      name: "Faculty Name",
+      designation: "Lecturer - Physics",
+      qualification: "M.Sc., B.Ed.",
+      image: "/images/faculty2.jpg",
+    },
+    {
+      name: "Faculty Name",
+      designation: "Lecturer - Chemistry",
+      qualification: "M.Sc., B.Ed.",
+      image: "/images/faculty3.jpg",
+    },
+    {
+      name: "Faculty Name",
+      designation: "Lecturer - Mathematics",
+      qualification: "M.Sc., B.Ed.",
+      image: "/images/faculty4.jpg",
+    },
+    {
+      name: "Faculty Name",
+      designation: "Lecturer - Commerce",
+      qualification: "M.Com., B.Ed.",
+      image: "/images/faculty5.jpg",
+    },
+    {
+      name: "Faculty Name",
+      designation: "Lecturer - Computer Science",
+      qualification: "MCA",
+      image: "/images/faculty6.jpg",
+    },
+  ];
 
   const [selectedFaculty, setSelectedFaculty] = useState(null);
 
-  const faculties = [
-    {
-      id: 1,
-      name: "Faculty Name 1",
-      image: "/src/assets/faculty1.jpg",
-      designation: "Lecturer",
-      qualification: "M.Sc, B.Ed"
-    },
-    {
-      id: 2,
-      name: "Faculty Name 2",
-      image: "/src/assets/faculty2.jpg",
-      designation: "Lecturer",
-      qualification: "M.Com, B.Ed"
-    },
-    {
-      id: 3,
-      name: "Faculty Name 3",
-      image: "/src/assets/faculty3.jpg",
-      designation: "Lecturer",
-      qualification: "M.A, B.Ed"
+  const handleFacultyClick = (index) => {
+    if (selectedFaculty === index) {
+      setSelectedFaculty(null);
+    } else {
+      setSelectedFaculty(index);
     }
-  ];
+  };
 
   return (
-    <section id="faculties" className="faculties-section">
-
-      <div className="faculties-heading">
-        <p>OUR TEAM</p>
-        <h2>Our Faculties</h2>
-        <span>
-          Meet our dedicated and experienced teaching faculty
-        </span>
-      </div>
-
+    <section className="faculties-section">
       <div className="faculties-container">
 
-        {faculties.map((faculty) => (
+        {/* Heading */}
+        <div className="faculties-heading">
+          <span>OUR FACULTY</span>
 
-          <div className="faculty-card" key={faculty.id}>
+          <h1>Meet Our Faculty</h1>
 
-            <div
-              className="faculty-image"
-              onClick={() => setSelectedFaculty(faculty)}
-            >
-              <img
-                src={faculty.image}
-                alt={faculty.name}
-              />
+          <p>
+            Our dedicated faculty members are committed to providing
+            quality education and guiding students towards success.
+          </p>
+        </div>
 
-              <div className="faculty-overlay">
-                <span>View Details</span>
+        {/* Faculty Grid */}
+        <div className="faculties-grid">
+
+          {faculties.map((faculty, index) => (
+            <div className="faculty-card" key={index}>
+
+              {/* Clickable Image */}
+              <div
+                className="faculty-image-container"
+                onClick={() => handleFacultyClick(index)}
+              >
+                <img
+                  src={faculty.image}
+                  alt={faculty.name}
+                  className="faculty-image"
+                />
               </div>
-            </div>
 
-            <div className="faculty-info">
-              <h3>{faculty.name}</h3>
-            </div>
+              {/* Name */}
+              <h2>{faculty.name}</h2>
 
-          </div>
+              {/* Details appear after clicking */}
+              {selectedFaculty === index && (
+                <div className="faculty-info">
 
-        ))}
+                  <p>
+                    <strong>Designation</strong>
+                    <span>{faculty.designation}</span>
+                  </p>
 
-      </div>
+                  <p>
+                    <strong>Qualification</strong>
+                    <span>{faculty.qualification}</span>
+                  </p>
 
-
-      {/* FACULTY POPUP */}
-
-      {selectedFaculty && (
-
-        <div
-          className="faculty-modal"
-          onClick={() => setSelectedFaculty(null)}
-        >
-
-          <div
-            className="faculty-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-
-            <button
-              className="faculty-close"
-              onClick={() => setSelectedFaculty(null)}
-            >
-              ×
-            </button>
-
-            <img
-              src={selectedFaculty.image}
-              alt={selectedFaculty.name}
-            />
-
-            <h2>{selectedFaculty.name}</h2>
-
-            <div className="faculty-details">
-
-              <p>
-                <strong>Designation:</strong>
-                <br />
-                {selectedFaculty.designation}
-              </p>
-
-              <p>
-                <strong>Qualification:</strong>
-                <br />
-                {selectedFaculty.qualification}
-              </p>
+                </div>
+              )}
 
             </div>
-
-          </div>
+          ))}
 
         </div>
 
-      )}
-
+      </div>
     </section>
   );
 }

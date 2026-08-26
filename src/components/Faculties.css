@@ -1,212 +1,209 @@
-/* ==============================
-   FACULTY SECTION
-================================ */
-
-.faculty-section {
+.faculties-section {
   width: 100%;
-  padding: 70px 7% 90px;
+  min-height: 100vh;
+  padding: 90px 7%;
   box-sizing: border-box;
-  background: #ffffff;
+  background: linear-gradient(135deg, #f8f1e7, #fffaf4);
 }
 
+.faculties-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-/* ==============================
-   HEADER
-================================ */
+/* =========================
+   HEADING
+========================= */
 
-.faculty-header {
+.faculties-heading {
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 55px;
+  margin-bottom: 55px;
 }
 
-.faculty-label {
+.faculties-heading span {
   display: block;
-  font-size: 17px;
+  margin-bottom: 10px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 5px;
-  color: #68727b;
-  margin-bottom: 12px;
+  letter-spacing: 3px;
+  color: #a06b25;
 }
 
-.faculty-header h1 {
+.faculties-heading h1 {
   margin: 0;
-  font-size: 46px;
-  font-weight: 500;
-  color: #101820;
+  font-size: 44px;
+  font-weight: 700;
+  color: #2e2118;
 }
 
-.faculty-header h1 span {
-  color: #e27a00;
+.faculties-heading p {
+  max-width: 650px;
+  margin: 18px auto 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #6d6259;
 }
+/* =========================
+   faculty grid
+========================= */
 
-.faculty-header p {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #65717c;
-  line-height: 1.6;
-}
-
-
-/* ==============================
-   FACULTY CONTAINER
-================================ */
-
-.faculty-container {
-  max-width: 1250px;
-  margin: auto;
-
+.faculties-grid {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px 28px;
 }
 
-
-/* ==============================
+/* =========================
    FACULTY CARD
-================================ */
+========================= */
 
 .faculty-card {
-  background: #faf8f3;
-  border: 1px solid #eadfce;
-  border-radius: 15px;
-
-  overflow: hidden;
-
-  box-shadow: 0 10px 30px rgba(80, 60, 30, 0.07);
-
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
+  text-align: center;
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(50, 35, 20, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .faculty-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(50, 35, 20, 0.15);
+}
+/* =========================
+   FACULTY IMAGE
+========================= */
 
-  box-shadow: 0 18px 35px rgba(80, 60, 30, 0.13);
+.faculty-image-container {
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 5px solid #d8b47a;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
-
-/* ==============================
-   IMAGE
-================================ */
-
+.faculty-image-container:hover {
+  transform: scale(1.04);
+}
 .faculty-image {
   width: 100%;
-  height: 270px;
-
-  background: #f1ece3;
-
-  overflow: hidden;
-}
-
-.faculty-image img {
-  width: 100%;
   height: 100%;
-
-  object-fit: cover;
-
   display: block;
-
-  transition: transform 0.4s ease;
+  object-fit: cover;
 }
 
-.faculty-card:hover .faculty-image img {
-  transform: scale(1.05);
-}
+/* =========================
+   FACULTY NAME
+========================= */
 
-
-/* ==============================
-   DETAILS
-================================ */
-
-.faculty-details {
-  padding: 24px 20px 27px;
-  text-align: center;
-}
-
-.faculty-details h2 {
-  margin: 0;
-
-  font-size: 22px;
+.faculty-card h2 {
+  margin: 8px 0 0;
+  font-size: 21px;
   font-weight: 600;
-
-  color: #101820;
+  color: #2e2118;
 }
 
-.faculty-line {
-  width: 45px;
-  height: 3px;
+/* =========================
+   FACULTY INFORMATION
+========================= */
 
-  background: #e27a00;
-
-  border-radius: 5px;
-
-  margin: 12px auto;
+.faculty-info {
+  margin-top: 18px;
+  padding: 15px;
+  border-top: 1px solid #e4d5c2;
+  border-radius: 12px;
+  background: #fff8ef;
+  animation: showFacultyInfo 0.3s ease;
 }
 
-.faculty-details h4 {
-  margin: 0;
-
-  font-size: 15px;
-  font-weight: 600;
-
-  color: #e27a00;
+.faculty-info p {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.faculty-details p {
-  margin: 7px 0 0;
+.faculty-info strong {
+  font-size: 13px;
+  color: #9b6827;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
+.faculty-info span {
   font-size: 14px;
-
-  color: #68727b;
+  color: #51463d;
 }
 
+/* =========================
+   ANIMATION
+========================= */
 
-/* ==============================
+@keyframes showFacultyInfo {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
    TABLET
-================================ */
+========================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
+  .faculties-section {
+    padding: 75px 5%;
+  }
 
-  .faculty-container {
+  .faculties-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .faculty-header h1 {
-    font-size: 40px;
+  .faculties-heading h1 {
+    font-size: 38px;
   }
 }
 
-
-/* ==============================
+/* =========================
    MOBILE
-================================ */
+========================= */
 
 @media (max-width: 600px) {
-
-  .faculty-section {
-    padding: 55px 5% 70px;
+  .faculties-section {
+    padding: 60px 5%;
   }
 
-  .faculty-label {
-    font-size: 13px;
-    letter-spacing: 4px;
+  .faculties-heading {
+    margin-bottom: 40px;
   }
 
-  .faculty-header h1 {
+  .faculties-heading h1 {
     font-size: 32px;
   }
 
-  .faculty-header p {
-    font-size: 15px;
+  .faculties-heading p {
+    font-size: 14px;
   }
 
-  .faculty-container {
+  .faculties-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 25px;
   }
 
-  .faculty-image {
-    height: 300px;
+  .faculty-image-container {
+    width: 165px;
+    height: 165px;
   }
 }
