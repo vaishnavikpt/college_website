@@ -1,6 +1,6 @@
-/* =========================
+/* =====================================================
    ACHIEVEMENTS SECTION
-========================= */
+===================================================== */
 
 .achievements {
   padding: 90px 8%;
@@ -9,13 +9,13 @@
 
 .achievements-container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 
-/* =========================
+/* =====================================================
    MAIN HEADING
-========================= */
+===================================================== */
 
 .achievements-heading {
   max-width: 750px;
@@ -24,17 +24,22 @@
 }
 
 .achievements-small-title {
+  margin: 0 0 12px;
+
   color: #d97706;
+
   font-size: 14px;
   font-weight: 700;
+
   letter-spacing: 3px;
-  margin-bottom: 12px;
 }
 
 .achievements-heading h2 {
   margin: 0 0 18px;
-  font-size: 40px;
+
   color: #222;
+
+  font-size: 40px;
 }
 
 .achievements-heading h2 span {
@@ -43,26 +48,29 @@
 
 .achievements-heading > p {
   margin: 0;
+
   color: #666;
+
   font-size: 16px;
   line-height: 1.8;
 }
 
 
-/* =========================
+/* =====================================================
    ACADEMIC CARD
-========================= */
+===================================================== */
 
 .academic-card {
   max-width: 750px;
-  margin: auto;
 
-  padding: 40px;
+  margin: 0 auto;
+
+  padding: 35px;
 
   display: flex;
   align-items: center;
 
-  gap: 30px;
+  gap: 28px;
 
   background: #faf7f2;
 
@@ -70,12 +78,13 @@
 
   border-radius: 10px;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .academic-icon {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 
   flex-shrink: 0;
 
@@ -87,15 +96,15 @@
 
   background: #ffffff;
 
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .academic-content h3 {
   margin: 0 0 10px;
 
-  font-size: 28px;
-
   color: #222;
+
+  font-size: 27px;
 }
 
 .academic-content p {
@@ -109,12 +118,12 @@
 }
 
 
-/* =========================
+/* =====================================================
    ACADEMIC BUTTON
-========================= */
+===================================================== */
 
 .academic-button {
-  padding: 12px 24px;
+  padding: 11px 22px;
 
   border: none;
 
@@ -125,7 +134,6 @@
   color: #ffffff;
 
   font-size: 14px;
-
   font-weight: 600;
 
   cursor: pointer;
@@ -140,38 +148,33 @@
 }
 
 
-/* =========================
-   OTHER ACHIEVEMENTS
-========================= */
-
-.other-achievements {
-  margin-top: 90px;
-}
+/* =====================================================
+   OTHER ACHIEVEMENTS HEADING
+===================================================== */
 
 .other-achievements-heading {
-  text-align: center;
+  margin: 80px 0 40px;
 
-  margin-bottom: 45px;
+  text-align: center;
 }
 
 .other-small-title {
+  margin: 0 0 10px;
+
   color: #d97706;
 
   font-size: 13px;
-
   font-weight: 700;
 
   letter-spacing: 3px;
-
-  margin-bottom: 10px;
 }
 
 .other-achievements-heading h3 {
   margin: 0 0 12px;
 
-  font-size: 34px;
-
   color: #222;
+
+  font-size: 34px;
 }
 
 .other-achievements-heading h3 span {
@@ -187,51 +190,58 @@
 }
 
 
-/* =========================
+/* =====================================================
    ACHIEVEMENT GRID
-========================= */
+===================================================== */
 
 .achievements-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
 
   gap: 25px;
 }
 
 
-/* =========================
+/* =====================================================
    ACHIEVEMENT CARD
-========================= */
+===================================================== */
 
 .achievement-card {
+  overflow: hidden;
+
   background: #faf7f2;
 
-  border-radius: 8px;
+  border: 1px solid #eee5d9;
 
-  overflow: hidden;
+  border-radius: 9px;
 
   cursor: pointer;
 
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.06);
 
-  transition: 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .achievement-card:hover {
-  transform: translateY(-7px);
+  transform: translateY(-6px);
 
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 
-/* =========================
+/* =====================================================
    CARD IMAGE
-========================= */
+===================================================== */
 
 .achievement-card-image {
   width: 100%;
-  height: 230px;
+  height: 220px;
 
   overflow: hidden;
 
@@ -242,70 +252,68 @@
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
-
   display: block;
+
+  object-fit: cover;
 
   transition: transform 0.4s ease;
 }
 
 .achievement-card:hover
 .achievement-card-image img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 
-/* =========================
+/* =====================================================
    PLACEHOLDER
-========================= */
+===================================================== */
 
 .achievement-image-placeholder {
   width: 100%;
   height: 100%;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  font-size: 45px;
+  font-size: 42px;
 }
 
 
-/* =========================
-   CARD TITLE
-========================= */
+/* =====================================================
+   CARD CONTENT
+===================================================== */
 
 .achievement-card-content {
-  padding: 22px 24px;
+  padding: 20px 22px;
 }
 
 .achievement-card-content h4 {
-  margin: 0 0 10px;
-
-  font-size: 20px;
+  margin: 0 0 9px;
 
   color: #222;
+
+  font-size: 19px;
+  line-height: 1.4;
 }
 
 .achievement-card-content span {
   color: #d97706;
 
   font-size: 14px;
-
   font-weight: 600;
 }
 
 
-/* =========================
-   EMPTY
-========================= */
+/* =====================================================
+   EMPTY / LOADING
+===================================================== */
 
 .achievements-empty {
-  min-height: 220px;
+  min-height: 210px;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
@@ -321,17 +329,17 @@
 }
 
 .achievements-empty-icon {
-  font-size: 45px;
-
   margin-bottom: 10px;
+
+  font-size: 40px;
 }
 
 .achievements-empty h4 {
   margin: 0 0 8px;
 
-  font-size: 20px;
-
   color: #333;
+
+  font-size: 19px;
 }
 
 .achievements-empty p {
@@ -343,113 +351,388 @@
 }
 
 
-/* =========================
+/* =====================================================
    MODAL OVERLAY
-========================= */
+===================================================== */
 
 .achievement-modal-overlay {
   position: fixed;
 
-  top: 0;
-  left: 0;
+  inset: 0;
 
-  width: 100%;
-  height: 100%;
+  z-index: 2000;
 
-  padding: 30px;
+  padding: 20px;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  background: rgba(0, 0, 0, 0.65);
-
-  z-index: 2000;
+  background: rgba(0, 0, 0, 0.68);
 
   overflow-y: auto;
 }
 
 
-/* =========================
-   MODAL
-========================= */
+/* =====================================================
+   ACHIEVEMENT POPUP
+   MEDIUM SIZE
+===================================================== */
 
-.achievement-modal {
+.achievement-popup {
   position: relative;
 
-  width: 100%;
+  width: min(700px, 100%);
 
-  max-width: 900px;
-
-  max-height: 90vh;
+  max-height: 88vh;
 
   overflow-y: auto;
+
+  padding: 28px 32px 30px;
 
   background: #ffffff;
 
-  border-radius: 10px;
+  border-radius: 12px;
 
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.30);
 
-  padding: 40px;
+  animation:
+    achievementPopupOpen 0.22s ease;
 }
 
 
-/* =========================
+@keyframes achievementPopupOpen {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(12px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
    CLOSE BUTTON
-========================= */
+===================================================== */
 
 .achievement-close {
   position: absolute;
 
-  top: 15px;
-  right: 15px;
+  top: 12px;
+  right: 12px;
 
-  width: 40px;
-  height: 40px;
+  z-index: 20;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border: none;
 
   border-radius: 50%;
 
-  background: #f2f2f2;
+  background: #f3f3f3;
 
   color: #333;
 
-  font-size: 27px;
+  font-size: 25px;
+
+  line-height: 1;
 
   cursor: pointer;
 
-  z-index: 5;
-
-  transition: 0.3s;
+  transition: 0.25s ease;
 }
 
 .achievement-close:hover {
   background: #d97706;
 
-  color: white;
+  color: #ffffff;
 }
 
 
-/* =========================
-   ACADEMIC MODAL HEADING
-========================= */
+/* =====================================================
+   POPUP TITLE
+   TITLE IS ABOVE IMAGE
+===================================================== */
 
-.academic-modal-heading {
+.achievement-popup-title {
+  padding: 0 45px 18px 5px;
+
   text-align: center;
-
-  margin-bottom: 35px;
 }
 
-.academic-modal-heading p {
-  margin: 0 0 8px;
+.achievement-popup-title p {
+  margin: 0 0 6px;
 
   color: #d97706;
 
-  font-size: 13px;
+  font-size: 11px;
+  font-weight: 700;
 
+  letter-spacing: 2px;
+}
+
+.achievement-popup-title h2 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 25px;
+
+  line-height: 1.35;
+}
+
+
+/* =====================================================
+   IMAGE SLIDER
+===================================================== */
+
+.achievement-image-slider {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =====================================================
+   POPUP IMAGE
+   ALL IMAGES SAME SIZE
+===================================================== */
+
+.achievement-popup-image {
+  width: 100%;
+
+  height: 360px;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background: #f1eee9;
+}
+
+.achievement-popup-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  background: #f1eee9;
+}
+
+
+/* =====================================================
+   ARROWS
+===================================================== */
+
+.achievement-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  z-index: 10;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #333;
+
+  font-size: 32px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.18);
+
+  transform:
+    translateY(-50%);
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.achievement-arrow:hover {
+  background: #d97706;
+
+  color: #ffffff;
+
+  transform:
+    translateY(-50%)
+    scale(1.05);
+}
+
+
+/* LEFT */
+
+.achievement-arrow-left {
+  left: 12px;
+}
+
+
+/* RIGHT */
+
+.achievement-arrow-right {
+  right: 12px;
+}
+
+
+/* =====================================================
+   IMAGE COUNTER
+===================================================== */
+
+.achievement-image-counter {
+  width: fit-content;
+
+  margin: 10px auto 0;
+
+  padding: 4px 11px;
+
+  border-radius: 20px;
+
+  background: #f5f2ed;
+
+  color: #666;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   NO IMAGE
+===================================================== */
+
+.popup-no-image {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #888;
+
+  font-size: 15px;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+   BELOW IMAGE
+===================================================== */
+
+.achievement-popup-description {
+  margin-top: 22px;
+
+  padding: 20px;
+
+  background: #faf7f2;
+
+  border: 1px solid #eee5d9;
+
+  border-radius: 8px;
+}
+
+.achievement-popup-description h3 {
+  margin: 0 0 9px;
+
+  color: #333;
+
+  font-size: 17px;
+}
+
+.achievement-popup-description p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   ACADEMIC MODAL
+===================================================== */
+
+.academic-modal {
+  position: relative;
+
+  width: min(750px, 100%);
+
+  max-height: 88vh;
+
+  overflow-y: auto;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =====================================================
+   ACADEMIC HEADING
+===================================================== */
+
+.academic-modal-heading {
+  padding: 0 40px;
+
+  margin-bottom: 30px;
+
+  text-align: center;
+}
+
+.academic-modal-heading p {
+  margin: 0 0 7px;
+
+  color: #d97706;
+
+  font-size: 12px;
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -460,61 +743,60 @@
 
   color: #222;
 
-  font-size: 30px;
+  font-size: 28px;
 }
 
 
-/* =========================
-   SCIENCE / COMMERCE
-========================= */
+/* =====================================================
+   SCIENCE / COMMERCE BUTTONS
+===================================================== */
 
 .stream-selection {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 20px;
+  gap: 18px;
 }
 
 .stream-button {
-  padding: 22px;
+  padding: 20px;
 
   border: 1px solid #eadfce;
 
-  border-radius: 7px;
+  border-radius: 8px;
 
   background: #faf7f2;
 
   color: #333;
 
-  font-size: 18px;
-
+  font-size: 17px;
   font-weight: 700;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: 0.25s ease;
 }
 
 .stream-button:hover {
   background: #d97706;
 
-  color: white;
-
   border-color: #d97706;
 
-  transform: translateY(-3px);
+  color: #ffffff;
+
+  transform: translateY(-2px);
 }
 
 
-/* =========================
+/* =====================================================
    BACK BUTTON
-========================= */
+===================================================== */
 
 .back-button {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 
-  padding: 8px 15px;
+  padding: 6px 0;
 
   border: none;
 
@@ -523,29 +805,28 @@
   color: #d97706;
 
   font-size: 14px;
-
   font-weight: 600;
 
   cursor: pointer;
 }
 
 
-/* =========================
+/* =====================================================
    ACADEMIC DETAILS
-========================= */
+===================================================== */
 
 .academic-details h3 {
-  margin: 0 0 25px;
-
-  font-size: 27px;
+  margin: 0 0 20px;
 
   color: #222;
+
+  font-size: 25px;
 }
 
 
-/* =========================
+/* =====================================================
    ACADEMIC TABLE
-========================= */
+===================================================== */
 
 .academic-table-wrapper {
   width: 100%;
@@ -554,26 +835,25 @@
 
   border: 1px solid #e5e5e5;
 
-  border-radius: 7px;
+  border-radius: 8px;
 }
 
 .academic-table {
   width: 100%;
 
-  min-width: 700px;
+  min-width: 650px;
 
   border-collapse: collapse;
 }
 
 .academic-table th {
-  padding: 16px 14px;
+  padding: 13px 12px;
 
   background: #faf7f2;
 
   color: #333;
 
-  font-size: 14px;
-
+  font-size: 13px;
   font-weight: 700;
 
   text-align: left;
@@ -582,11 +862,11 @@
 }
 
 .academic-table td {
-  padding: 18px 14px;
+  padding: 15px 12px;
 
   color: #666;
 
-  font-size: 14px;
+  font-size: 13px;
 
   border-bottom: 1px solid #e5e5e5;
 }
@@ -596,87 +876,34 @@
 }
 
 
-/* =========================
-   OTHER ACHIEVEMENT IMAGE
-========================= */
+/* =====================================================
+   ACADEMIC LOADING / EMPTY
+===================================================== */
 
-.achievement-main-image {
-  width: 100%;
+.academic-loading {
+  padding: 25px;
 
-  height: 400px;
+  text-align: center;
 
-  overflow: hidden;
-
-  border-radius: 7px;
-
-  margin-bottom: 30px;
+  color: #777;
 }
 
-.achievement-main-image img {
-  width: 100%;
-  height: 100%;
+.academic-not-found {
+  padding: 30px;
 
-  object-fit: cover;
+  border-radius: 8px;
 
-  display: block;
-}
+  background: #faf7f2;
 
+  text-align: center;
 
-/* =========================
-   DESCRIPTION
-========================= */
-
-.achievement-description {
-  padding: 0 5px;
-}
-
-.achievement-description h2 {
-  margin: 0 0 18px;
-
-  font-size: 30px;
-
-  color: #222;
-}
-
-.achievement-description > p {
-  margin: 0;
-
-  color: #666;
-
-  font-size: 16px;
-
-  line-height: 1.9;
+  color: #777;
 }
 
 
-/* =========================
-   POPUP GALLERY
-========================= */
-
-.achievement-popup-gallery {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 15px;
-
-  margin-top: 30px;
-}
-
-.achievement-popup-gallery img {
-  width: 100%;
-
-  height: 150px;
-
-  object-fit: cover;
-
-  border-radius: 6px;
-}
-
-
-/* =========================
+/* =====================================================
    TABLET
-========================= */
+===================================================== */
 
 @media (max-width: 900px) {
 
@@ -684,16 +911,28 @@
     padding: 70px 6%;
   }
 
+
   .achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .achievement-popup {
+    width: min(650px, 100%);
+  }
+
+
+  .achievement-popup-image {
+    height: 330px;
   }
 
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -701,52 +940,137 @@
     padding: 60px 6%;
   }
 
+
   .achievements-heading h2 {
     font-size: 32px;
   }
 
+
   .academic-card {
     flex-direction: column;
 
-    text-align: center;
+    padding: 28px 20px;
 
-    padding: 30px 20px;
+    text-align: center;
   }
+
 
   .academic-content h3 {
     font-size: 24px;
   }
 
+
   .achievements-grid {
     grid-template-columns: 1fr;
+
+    gap: 20px;
   }
 
+
   .achievement-card-image {
-    height: 240px;
+    height: 220px;
   }
+
+
+  /* POPUP */
+
+  .achievement-modal-overlay {
+    padding: 12px;
+  }
+
+
+  .achievement-popup {
+    width: 100%;
+
+    max-height: 92vh;
+
+    padding: 22px 16px 20px;
+
+    border-radius: 10px;
+  }
+
+
+  .achievement-popup-title {
+    padding:
+      0 35px 15px 5px;
+  }
+
+
+  .achievement-popup-title h2 {
+    font-size: 21px;
+  }
+
+
+  .achievement-popup-image {
+    height: 260px;
+
+    border-radius: 7px;
+  }
+
+
+  .achievement-arrow {
+    width: 35px;
+    height: 35px;
+
+    font-size: 28px;
+  }
+
+
+  .achievement-arrow-left {
+    left: 8px;
+  }
+
+
+  .achievement-arrow-right {
+    right: 8px;
+  }
+
+
+  .achievement-popup-description {
+    margin-top: 18px;
+
+    padding: 16px;
+  }
+
+
+  .achievement-popup-description h3 {
+    font-size: 16px;
+  }
+
+
+  .achievement-popup-description p {
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  /* ACADEMIC */
+
+  .academic-modal {
+    padding: 25px 18px;
+  }
+
+
+  .academic-modal-heading {
+    padding: 0 30px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .academic-modal-heading h2 {
+    font-size: 24px;
+  }
+
 
   .stream-selection {
     grid-template-columns: 1fr;
   }
 
-  .achievement-modal-overlay {
-    padding: 15px;
-  }
-
-  .achievement-modal {
-    padding: 30px 20px;
-  }
 
   .academic-table {
-    min-width: 700px;
-  }
-
-  .achievement-main-image {
-    height: 250px;
-  }
-
-  .achievement-popup-gallery {
-    grid-template-columns: 1fr 1fr;
+    min-width: 650px;
   }
 
 }

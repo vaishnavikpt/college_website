@@ -1,39 +1,278 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import {
+  collection,
+  getDocs,
+  query,
+  orderBy,
+} from "firebase/firestore";
+
+import { db } from "./firebase";
+
 import "./Events.css";
 
+
 function Events() {
+
+  /* =====================================================
+     EVENTS
+  ===================================================== */
+
+  const [events, setEvents] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+
+  /* =====================================================
+     SELECTED EVENT / MODAL
+  ===================================================== */
+
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  /*
-    Later this data will come from the database.
+  const [currentImageIndex, setCurrentImageIndex] =
+    useState(0);
 
-    Each event can have multiple images.
-    The first image will be displayed on the card.
-  */
 
-  const events = [
-    // Example for later:
+  /* =====================================================
+     LOAD EVENTS FROM FIRESTORE
+  ===================================================== */
 
-    // {
-    //   title: "Annual Day",
-    //   images: [
-    //     "/images/annual-day-1.jpg",
-    //     "/images/annual-day-2.jpg",
-    //   ],
-    //   description:
-    //     "Complete explanation about the Annual Day event..."
-    // },
+  useEffect(() => {
 
-  ];
+    const loadEvents = async () => {
+
+      try {
+
+        setLoading(true);
+
+
+        const eventsRef = collection(
+          db,
+          "events"
+        );
+
+
+        const eventsQuery = query(
+          eventsRef,
+          orderBy("order", "asc")
+        );
+
+
+        const snapshot =
+          await getDocs(eventsQuery);
+
+
+        const eventsData =
+          snapshot.docs.map((item) => ({
+
+            id: item.id,
+
+            ...item.data(),
+
+          }));
+
+
+        setEvents(eventsData);
+
+
+      } catch (error) {
+
+        console.error(
+          "Error loading events:",
+          error
+        );
+
+
+        alert(
+          "Unable to load events.\n\n" +
+          error.message
+        );
+
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    };
+
+
+    loadEvents();
+
+  }, []);
+
+
+  /* =====================================================
+     OPEN EVENT
+  ===================================================== */
+
+  const openEvent = (event) => {
+
+    setSelectedEvent(event);
+
+    setCurrentImageIndex(0);
+
+  };
+
+
+  /* =====================================================
+     CLOSE EVENT
+  ===================================================== */
+
+  const closeEvent = () => {
+
+    setSelectedEvent(null);
+
+    setCurrentImageIndex(0);
+
+  };
+
+
+  /* =====================================================
+     PREVIOUS IMAGE
+  ===================================================== */
+
+  const showPreviousImage = () => {
+
+    if (
+      !selectedEvent ||
+      !selectedEvent.images ||
+      selectedEvent.images.length <= 1
+    ) {
+
+      return;
+
+    }
+
+
+    setCurrentImageIndex((currentIndex) => {
+
+      if (currentIndex === 0) {
+
+        return (
+          selectedEvent.images.length - 1
+        );
+
+      }
+
+      return currentIndex - 1;
+
+    });
+
+  };
+
+
+  /* =====================================================
+     NEXT IMAGE
+  ===================================================== */
+
+  const showNextImage = () => {
+
+    if (
+      !selectedEvent ||
+      !selectedEvent.images ||
+      selectedEvent.images.length <= 1
+    ) {
+
+      return;
+
+    }
+
+
+    setCurrentImageIndex((currentIndex) => {
+
+      if (
+        currentIndex ===
+        selectedEvent.images.length - 1
+      ) {
+
+        return 0;
+
+      }
+
+      return currentIndex + 1;
+
+    });
+
+  };
+
+
+  /* =====================================================
+     KEYBOARD CONTROLS
+  ===================================================== */
+
+  useEffect(() => {
+
+    const handleKeyDown = (event) => {
+
+      if (!selectedEvent) {
+
+        return;
+
+      }
+
+
+      if (event.key === "Escape") {
+
+        closeEvent();
+
+      }
+
+
+      if (event.key === "ArrowLeft") {
+
+        showPreviousImage();
+
+      }
+
+
+      if (event.key === "ArrowRight") {
+
+        showNextImage();
+
+      }
+
+    };
+
+
+    window.addEventListener(
+      "keydown",
+      handleKeyDown
+    );
+
+
+    return () => {
+
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown
+      );
+
+    };
+
+  }, [
+    selectedEvent,
+  ]);
+
+
+  /* =====================================================
+     RENDER
+  ===================================================== */
 
   return (
-    <section id="events" className="events">
+
+    <section
+      id="events"
+      className="events"
+    >
 
       <div className="events-container">
 
-        {/* =========================
+
+        {/* =================================================
             HEADING
-        ========================= */}
+        ================================================= */}
 
         <div className="events-heading">
 
@@ -41,43 +280,86 @@ function Events() {
             COLLEGE EVENTS
           </p>
 
+
           <h2>
-            Events & <span>Activities</span>
+
+            Events &{" "}
+
+            <span>
+              Activities
+            </span>
+
           </h2>
 
+
           <p>
-            Explore the events and activities conducted
-            at Shree Narayana Guru Composite PU College.
+
+            Explore the events and activities
+            conducted at Shree Narayana Guru
+            Composite PU College.
+
           </p>
 
         </div>
 
 
-        {/* =========================
-            EVENTS
-        ========================= */}
+        {/* =================================================
+            LOADING
+        ================================================= */}
 
-        {events.length > 0 ? (
+        {loading && (
+
+          <div className="events-empty">
+
+            <div className="events-empty-icon">
+              ⏳
+            </div>
+
+            <h3>
+              Loading Events...
+            </h3>
+
+            <p>
+              Please wait while event information
+              is being loaded.
+            </p>
+
+          </div>
+
+        )}
+
+
+        {/* =================================================
+            EVENTS
+        ================================================= */}
+
+        {!loading && events.length > 0 && (
 
           <div className="events-grid">
 
-            {events.map((event, index) => (
+            {events.map((event) => (
 
               <div
                 className="event-card"
-                key={index}
-                onClick={() => setSelectedEvent(event)}
+                key={event.id}
+                onClick={() =>
+                  openEvent(event)
+                }
               >
 
-                {/* IMAGE */}
+
+                {/* =========================================
+                    CARD IMAGE
+                ========================================= */}
 
                 <div className="event-card-image">
 
-                  {event.images && event.images.length > 0 ? (
+                  {event.images &&
+                  event.images.length > 0 ? (
 
                     <img
                       src={event.images[0]}
-                      alt={event.title}
+                      alt={event.name || "Event"}
                     />
 
                   ) : (
@@ -91,16 +373,23 @@ function Events() {
                 </div>
 
 
-                {/* TITLE */}
+                {/* =========================================
+                    CARD CONTENT
+                ========================================= */}
 
                 <div className="event-card-content">
 
                   <h3>
-                    {event.title}
+
+                    {event.name}
+
                   </h3>
 
+
                   <span className="event-view">
+
                     View Details →
+
                   </span>
 
                 </div>
@@ -111,7 +400,14 @@ function Events() {
 
           </div>
 
-        ) : (
+        )}
+
+
+        {/* =================================================
+            NO EVENTS
+        ================================================= */}
+
+        {!loading && events.length === 0 && (
 
           <div className="events-empty">
 
@@ -119,9 +415,11 @@ function Events() {
               📅
             </div>
 
+
             <h3>
               No Events Added Yet
             </h3>
+
 
             <p>
               Event information will be updated soon.
@@ -132,63 +430,179 @@ function Events() {
         )}
 
 
-        {/* =========================
-            EVENT POPUP
-        ========================= */}
+        {/* =================================================
+            EVENT MODAL
+        ================================================= */}
 
         {selectedEvent && (
 
           <div
             className="event-modal-overlay"
-            onClick={() => setSelectedEvent(null)}
+            onClick={closeEvent}
           >
+
 
             <div
               className="event-modal"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) =>
+                e.stopPropagation()
+              }
             >
 
-              {/* CLOSE BUTTON */}
+
+              {/* ===========================================
+                  CLOSE BUTTON
+              =========================================== */}
 
               <button
                 className="event-close"
-                onClick={() => setSelectedEvent(null)}
+                onClick={closeEvent}
+                aria-label="Close"
               >
                 ×
               </button>
 
 
-              {/* MAIN IMAGE */}
+              {/* ===========================================
+                  EVENT TITLE
+              =========================================== */}
+
+              <div className="event-modal-title">
+
+                <h2>
+                  {selectedEvent.name}
+                </h2>
+
+              </div>
+
+
+              {/* ===========================================
+                  IMAGE SECTION
+              =========================================== */}
+
+              <div className="event-modal-image-section">
+
+
+                {selectedEvent.images &&
+                selectedEvent.images.length > 0 ? (
+
+                  <>
+
+
+                    {/* =====================================
+                        MAIN IMAGE
+                    ===================================== */}
+
+                    <div className="event-modal-main-image">
+
+                      <img
+                        src={
+                          selectedEvent.images[
+                            currentImageIndex
+                          ]
+                        }
+                        alt={`${selectedEvent.name} ${
+                          currentImageIndex + 1
+                        }`}
+                      />
+
+                    </div>
+
+
+                    {/* =====================================
+                        PREVIOUS BUTTON
+                    ===================================== */}
+
+                    {selectedEvent.images.length >
+                      1 && (
+
+                      <button
+                        className="event-modal-prev"
+                        onClick={
+                          showPreviousImage
+                        }
+                        aria-label="Previous image"
+                      >
+                        ‹
+                      </button>
+
+                    )}
+
+
+                    {/* =====================================
+                        NEXT BUTTON
+                    ===================================== */}
+
+                    {selectedEvent.images.length >
+                      1 && (
+
+                      <button
+                        className="event-modal-next"
+                        onClick={
+                          showNextImage
+                        }
+                        aria-label="Next image"
+                      >
+                        ›
+                      </button>
+
+                    )}
+
+                  </>
+
+                ) : (
+
+                  <div className="event-modal-no-image">
+
+                    <div>
+                      📷
+                    </div>
+
+                    <p>
+                      No images available
+                    </p>
+
+                  </div>
+
+                )}
+
+              </div>
+
+
+              {/* ===========================================
+                  IMAGE COUNTER
+              =========================================== */}
 
               {selectedEvent.images &&
               selectedEvent.images.length > 0 && (
 
-                <div className="event-modal-main-image">
+                <div className="event-image-counter">
 
-                  <img
-                    src={selectedEvent.images[0]}
-                    alt={selectedEvent.title}
-                  />
+                  {currentImageIndex + 1}
+
+                  {" / "}
+
+                  {selectedEvent.images.length}
 
                 </div>
 
               )}
 
 
-              {/* CONTENT */}
+              {/* ===========================================
+                  EVENT DESCRIPTION
+              =========================================== */}
 
               <div className="event-modal-content">
-
-                <h2>
-                  {selectedEvent.title}
-                </h2>
 
                 <p>
                   {selectedEvent.description}
                 </p>
 
 
-                {/* OTHER IMAGES */}
+                {/* =========================================
+                    THUMBNAILS
+                ========================================= */}
 
                 {selectedEvent.images &&
                 selectedEvent.images.length > 1 && (
@@ -198,11 +612,32 @@ function Events() {
                     {selectedEvent.images.map(
                       (image, index) => (
 
-                        <img
+                        <button
                           key={index}
-                          src={image}
-                          alt={`${selectedEvent.title} ${index + 1}`}
-                        />
+                          className={
+                            index ===
+                            currentImageIndex
+                              ? "event-thumbnail active"
+                              : "event-thumbnail"
+                          }
+                          onClick={() =>
+                            setCurrentImageIndex(
+                              index
+                            )
+                          }
+                          aria-label={`View image ${
+                            index + 1
+                          }`}
+                        >
+
+                          <img
+                            src={image}
+                            alt={`${selectedEvent.name} thumbnail ${
+                              index + 1
+                            }`}
+                          />
+
+                        </button>
 
                       )
                     )}
@@ -222,7 +657,10 @@ function Events() {
       </div>
 
     </section>
+
   );
+
 }
 
-export default Events;
+
+export default Events;   

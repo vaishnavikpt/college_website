@@ -1,0 +1,629 @@
+/* =====================================================
+   ACADEMIC ADMIN
+===================================================== */
+
+.academic-admin {
+  min-height: 100vh;
+  padding: 60px 7%;
+  background: #ffffff;
+}
+
+.academic-admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.academic-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.academic-admin-small-title {
+  margin: 0 0 10px;
+
+  color: #d97706;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.academic-admin-header h1 {
+  margin: 0 0 12px;
+
+  color: #222;
+
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.academic-admin-header h1 span {
+  color: #d97706;
+}
+
+.academic-admin-header p:last-child {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.academic-back-btn {
+  padding: 10px 18px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #444;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  white-space: nowrap;
+}
+
+.academic-back-btn:hover {
+  border-color: #d97706;
+
+  color: #d97706;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.academic-form-card {
+  padding: 32px;
+
+  margin-bottom: 35px;
+
+  background: #faf7f2;
+
+  border: 1px solid #eadfce;
+
+  border-radius: 8px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.academic-form-card h2 {
+  margin: 0 0 25px;
+
+  color: #222;
+
+  font-size: 24px;
+}
+
+
+/* =====================================================
+   STREAM TABS
+===================================================== */
+
+.academic-stream-tabs {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 28px;
+}
+
+.academic-stream-tab {
+  padding: 10px 22px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #555;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.academic-stream-tab:hover {
+  border-color: #d97706;
+
+  color: #d97706;
+}
+
+.academic-stream-tab.active {
+  background: #d97706;
+
+  border-color: #d97706;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.academic-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.academic-form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.academic-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.academic-form-group label {
+  color: #333;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.academic-form-group input,
+.academic-form-group select {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 13px;
+
+  border: 1px solid #dcdcdc;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #333;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+.academic-form-group input:focus,
+.academic-form-group select:focus {
+  border-color: #d97706;
+
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.08);
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+===================================================== */
+
+.academic-form-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.academic-save-btn {
+  padding: 11px 24px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #d97706;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.academic-save-btn:hover {
+  background: #b45309;
+
+  transform: translateY(-1px);
+}
+
+.academic-save-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.academic-cancel-btn {
+  padding: 11px 22px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #555;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.academic-cancel-btn:hover {
+  border-color: #aaa;
+
+  background: #f7f7f7;
+}
+
+
+/* =====================================================
+   EXISTING DATA CARD
+===================================================== */
+
+.academic-existing-card {
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 8px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.academic-existing-card h2 {
+  margin: 0 0 25px;
+
+  color: #222;
+
+  font-size: 23px;
+}
+
+
+/* =====================================================
+   TABLE WRAPPER
+===================================================== */
+
+.academic-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 6px;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.academic-admin-table {
+  width: 100%;
+
+  min-width: 850px;
+
+  border-collapse: collapse;
+}
+
+.academic-admin-table th {
+  padding: 14px 15px;
+
+  background: #faf7f2;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  color: #333;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.academic-admin-table td {
+  padding: 15px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  color: #666;
+
+  font-size: 14px;
+
+  vertical-align: middle;
+}
+
+.academic-admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.academic-admin-table tbody tr:hover {
+  background: #fffdf9;
+}
+
+
+/* =====================================================
+   STREAM BADGE
+===================================================== */
+
+.academic-stream-badge {
+  display: inline-block;
+
+  padding: 5px 10px;
+
+  border-radius: 4px;
+
+  background: #faf7f2;
+
+  border: 1px solid #eadfce;
+
+  color: #b45309;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   STUDENT NAME
+===================================================== */
+
+.academic-student-name {
+  color: #333;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   ACTION BUTTONS
+===================================================== */
+
+.academic-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+.academic-edit-btn,
+.academic-delete-btn {
+  padding: 7px 12px;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.academic-edit-btn {
+  border: 1px solid #ddd;
+
+  background: #ffffff;
+
+  color: #555;
+}
+
+.academic-edit-btn:hover {
+  border-color: #d97706;
+
+  color: #d97706;
+}
+
+.academic-delete-btn {
+  border: 1px solid #e5c8c8;
+
+  background: #fffafa;
+
+  color: #b42318;
+}
+
+.academic-delete-btn:hover {
+  background: #b42318;
+
+  border-color: #b42318;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.academic-empty {
+  padding: 50px 20px;
+
+  text-align: center;
+
+  border: 1px dashed #d8cfc2;
+
+  border-radius: 6px;
+
+  background: #faf7f2;
+}
+
+.academic-empty-icon {
+  margin-bottom: 12px;
+
+  font-size: 38px;
+}
+
+.academic-empty h3 {
+  margin: 0 0 7px;
+
+  color: #333;
+
+  font-size: 18px;
+}
+
+.academic-empty p {
+  margin: 0;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.academic-loading {
+  padding: 35px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.academic-error {
+  margin-bottom: 20px;
+
+  padding: 12px 15px;
+
+  border: 1px solid #f0caca;
+
+  border-radius: 5px;
+
+  background: #fff7f7;
+
+  color: #a33;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .academic-admin {
+    padding: 45px 5%;
+  }
+
+  .academic-admin-header {
+    flex-direction: column;
+  }
+
+  .academic-admin-header h1 {
+    font-size: 30px;
+  }
+
+  .academic-back-btn {
+    align-self: flex-start;
+  }
+
+  .academic-form-card {
+    padding: 22px 18px;
+  }
+
+  .academic-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .academic-form-group.full-width {
+    grid-column: auto;
+  }
+
+  .academic-stream-tabs {
+    width: 100%;
+  }
+
+  .academic-stream-tab {
+    flex: 1;
+
+    padding: 10px 12px;
+
+    text-align: center;
+  }
+
+  .academic-form-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .academic-save-btn,
+  .academic-cancel-btn {
+    width: 100%;
+  }
+
+  .academic-existing-card {
+    padding: 20px 15px;
+  }
+
+}

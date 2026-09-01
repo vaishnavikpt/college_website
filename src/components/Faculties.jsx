@@ -1,120 +1,512 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+} from "firebase/firestore";
+
+import { db } from "./firebase";
+
 import "./Faculties.css";
 
+
 function Faculties() {
-  // Temporary data for now.
-  // Later, this will come from the database.
-  const faculties = [
-    {
-      name: "Faculty Name",
-      designation: "Principal",
-      qualification: "M.A., B.Ed.",
-      image: "/images/faculty1.jpg",
-    },
-    {
-      name: "Faculty Name",
-      designation: "Lecturer - Physics",
-      qualification: "M.Sc., B.Ed.",
-      image: "/images/faculty2.jpg",
-    },
-    {
-      name: "Faculty Name",
-      designation: "Lecturer - Chemistry",
-      qualification: "M.Sc., B.Ed.",
-      image: "/images/faculty3.jpg",
-    },
-    {
-      name: "Faculty Name",
-      designation: "Lecturer - Mathematics",
-      qualification: "M.Sc., B.Ed.",
-      image: "/images/faculty4.jpg",
-    },
-    {
-      name: "Faculty Name",
-      designation: "Lecturer - Commerce",
-      qualification: "M.Com., B.Ed.",
-      image: "/images/faculty5.jpg",
-    },
-    {
-      name: "Faculty Name",
-      designation: "Lecturer - Computer Science",
-      qualification: "MCA",
-      image: "/images/faculty6.jpg",
-    },
-  ];
 
-  const [selectedFaculty, setSelectedFaculty] = useState(null);
+  // =====================================================
+  // FACULTY DATA
+  // =====================================================
 
-  const handleFacultyClick = (index) => {
-    if (selectedFaculty === index) {
-      setSelectedFaculty(null);
-    } else {
-      setSelectedFaculty(index);
-    }
+  const [faculties, setFaculties] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  const [selectedFaculty, setSelectedFaculty] =
+    useState(null);
+
+
+  // =====================================================
+  // FETCH FACULTIES
+  // =====================================================
+
+  useEffect(() => {
+
+    const loadFaculties = async () => {
+
+      try {
+
+        setLoading(true);
+
+
+        // =================================================
+        // GET FACULTIES COLLECTION
+        // =================================================
+
+        const facultiesRef =
+          collection(db, "faculties");
+
+        const snapshot =
+          await getDocs(facultiesRef);
+
+
+        const facultyData =
+          snapshot.docs.map((item) => {
+
+            const data = item.data();
+
+            return {
+
+              id: item.id,
+
+              name: data.name || "",
+
+              designation:
+                data.designation || "",
+
+              qualification:
+                data.qualification || "",
+
+              image:
+                data.image || "",
+
+            };
+
+          });
+
+
+        console.log(
+          "🔥 FACULTIES FROM FIREBASE:",
+          facultyData
+        );
+
+
+        // =================================================
+        // GET SAVED FACULTY ORDER
+        // =================================================
+
+        let finalFaculties =
+          [...facultyData];
+
+
+        try {
+
+          const orderRef =
+            doc(
+              db,
+              "facultySettings",
+              "order"
+            );
+
+
+          const orderSnapshot =
+            await getDoc(orderRef);
+
+
+          if (orderSnapshot.exists()) {
+
+            const savedOrder =
+              orderSnapshot.data().ids || [];
+
+
+            console.log(
+              "🔥 SAVED FACULTY ORDER:",
+              savedOrder
+            );
+
+
+            // =============================================
+            // ARRANGE ACCORDING TO ADMIN ORDER
+            // =============================================
+
+            const orderedFaculties = [];
+
+
+            savedOrder.forEach((id) => {
+
+              const faculty =
+                facultyData.find(
+                  (item) =>
+                    item.id === id
+                );
+
+
+              if (faculty) {
+
+                orderedFaculties.push(
+                  faculty
+                );
+
+              }
+
+            });
+
+
+            // =============================================
+            // ADD NEW FACULTIES
+            // =============================================
+
+            facultyData.forEach(
+              (faculty) => {
+
+                const alreadyAdded =
+                  orderedFaculties.some(
+                    (item) =>
+                      item.id === faculty.id
+                  );
+
+
+                if (!alreadyAdded) {
+
+                  orderedFaculties.push(
+                    faculty
+                  );
+
+                }
+
+              }
+            );
+
+
+            finalFaculties =
+              orderedFaculties;
+
+          }
+
+        } catch (orderError) {
+
+          console.warn(
+            "Faculty order could not be loaded:",
+            orderError
+          );
+
+          // Keep normal Firestore order
+          finalFaculties =
+            [...facultyData];
+
+        }
+
+
+        console.log(
+          "🔥 FINAL FACULTIES:",
+          finalFaculties
+        );
+
+
+        setFaculties(
+          finalFaculties
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "❌ Error fetching faculties:",
+          error
+        );
+
+        setFaculties([]);
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    };
+
+
+    loadFaculties();
+
+  }, []);
+
+
+  // =====================================================
+  // FACULTY CLICK
+  // =====================================================
+
+  const handleFacultyClick = (id) => {
+
+    setSelectedFaculty((current) => {
+
+      if (current === id) {
+
+        return null;
+
+      }
+
+      return id;
+
+    });
+
   };
 
+
+  // =====================================================
+  // RENDER
+  // =====================================================
+
   return (
-    <section className="faculties-section">
+
+    <section
+      id="faculties"
+      className="faculties-section"
+    >
+
       <div className="faculties-container">
 
-        {/* Heading */}
-        <div className="faculties-heading">
-          <span>OUR FACULTY</span>
 
-          <h1>Meet Our Faculty</h1>
+        {/* =================================================
+            HEADING
+        ================================================= */}
+
+        <div className="faculties-heading">
+
+          <span>
+            OUR FACULTY
+          </span>
+
+
+          <h1>
+            Meet Our Faculty
+          </h1>
+
 
           <p>
-            Our dedicated faculty members are committed to providing
-            quality education and guiding students towards success.
+            Our dedicated faculty members are committed
+            to providing quality education and guiding
+            students towards success.
           </p>
+
         </div>
 
-        {/* Faculty Grid */}
-        <div className="faculties-grid">
 
-          {faculties.map((faculty, index) => (
-            <div className="faculty-card" key={index}>
 
-              {/* Clickable Image */}
-              <div
-                className="faculty-image-container"
-                onClick={() => handleFacultyClick(index)}
-              >
-                <img
-                  src={faculty.image}
-                  alt={faculty.name}
-                  className="faculty-image"
-                />
-              </div>
+        {/* =================================================
+            LOADING
+        ================================================= */}
 
-              {/* Name */}
-              <h2>{faculty.name}</h2>
+        {loading && (
 
-              {/* Details appear after clicking */}
-              {selectedFaculty === index && (
-                <div className="faculty-info">
+          <div className="faculties-message">
 
-                  <p>
-                    <strong>Designation</strong>
-                    <span>{faculty.designation}</span>
-                  </p>
+            <div className="faculties-message-icon">
+              ⏳
+            </div>
 
-                  <p>
-                    <strong>Qualification</strong>
-                    <span>{faculty.qualification}</span>
-                  </p>
+
+            <h3>
+              Loading Faculty...
+            </h3>
+
+
+            <p>
+              Please wait while the faculty information
+              is being loaded.
+            </p>
+
+          </div>
+
+        )}
+
+
+
+        {/* =================================================
+            NO FACULTY
+        ================================================= */}
+
+        {!loading &&
+        faculties.length === 0 && (
+
+          <div className="faculties-message">
+
+            <div className="faculties-message-icon">
+              👩‍🏫
+            </div>
+
+
+            <h3>
+              No Faculty Added Yet
+            </h3>
+
+
+            <p>
+              Faculty information will be updated soon.
+            </p>
+
+          </div>
+
+        )}
+
+
+
+        {/* =================================================
+            FACULTY GRID
+        ================================================= */}
+
+        {!loading &&
+        faculties.length > 0 && (
+
+          <div className="faculties-grid">
+
+            {faculties.map(
+              (faculty) => (
+
+                <div
+                  className={`faculty-card ${
+                    selectedFaculty === faculty.id
+                      ? "faculty-card-active"
+                      : ""
+                  }`}
+                  key={faculty.id}
+                >
+
+
+                  {/* =====================================
+                      IMAGE
+                  ===================================== */}
+
+                  <div
+                    className="faculty-image-container"
+                    onClick={() =>
+                      handleFacultyClick(
+                        faculty.id
+                      )
+                    }
+                    role="button"
+                    tabIndex="0"
+                    onKeyDown={(event) => {
+
+                      if (
+                        event.key === "Enter" ||
+                        event.key === " "
+                      ) {
+
+                        handleFacultyClick(
+                          faculty.id
+                        );
+
+                      }
+
+                    }}
+                  >
+
+                    {faculty.image ? (
+
+                      <img
+                        src={faculty.image}
+                        alt={
+                          faculty.name ||
+                          "Faculty member"
+                        }
+                        className="faculty-image"
+                        loading="lazy"
+                        onError={(event) => {
+
+                          console.error(
+                            "❌ Faculty image failed:",
+                            faculty.image
+                          );
+
+                          event.currentTarget.style.display =
+                            "none";
+
+                        }}
+                      />
+
+                    ) : (
+
+                      <div className="faculty-image-placeholder">
+
+                        <span>
+                          👩‍🏫
+                        </span>
+
+                      </div>
+
+                    )}
+
+                  </div>
+
+
+
+                  {/* =====================================
+                      NAME
+                  ===================================== */}
+
+                  <div className="faculty-name">
+
+                    <h2>
+                      {faculty.name ||
+                        "Faculty Member"}
+                    </h2>
+
+                  </div>
+
+
+
+                  {/* =====================================
+                      DETAILS
+                  ===================================== */}
+
+                  {selectedFaculty === faculty.id && (
+
+                    <div className="faculty-info">
+
+
+                      {/* DESIGNATION */}
+
+                      <div className="faculty-info-item">
+
+                        <strong>
+                          Designation:
+                        </strong>
+
+                        <span>
+                          {faculty.designation ||
+                            "Not available"}
+                        </span>
+
+                      </div>
+
+
+
+                      {/* QUALIFICATION */}
+
+                      <div className="faculty-info-item">
+
+                        <strong>
+                          Qualification:
+                        </strong>
+
+                        <span>
+                          {faculty.qualification ||
+                            "Not available"}
+                        </span>
+
+                      </div>
+
+
+                    </div>
+
+                  )}
 
                 </div>
-              )}
 
-            </div>
-          ))}
+              )
+            )}
 
-        </div>
+          </div>
+
+        )}
 
       </div>
+
     </section>
+
   );
+
 }
+
 
 export default Faculties;

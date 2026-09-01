@@ -1,30 +1,89 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  collection,
+  getDocs,
+} from "firebase/firestore";
+
+import { db } from "./firebase";
 import "./About.css";
 import collegeImage from "../assets/college.jpg";
 
 function About() {
-  const [showManagement, setShowManagement] = useState(false);
+  const [showManagement, setShowManagement] =
+    useState(false);
 
-  const managementMembers = [
-    {
-      name: "Principal Name",
-      designation: "Principal",
-      description:
-        "Information about the Principal will be added here later.",
-    },
-    {
-      name: "Correspondent Name",
-      designation: "Correspondent",
-      description:
-        "Information about the Correspondent will be added here later.",
-    },
-    {
-      name: "Administrator Name",
-      designation: "Administrator",
-      description:
-        "Information about the Administrator will be added here later.",
-    },
-  ];
+  const [managementMembers, setManagementMembers] =
+    useState([]);
+
+  const [loadingManagement, setLoadingManagement] =
+    useState(false);
+
+  // Selected member whose qualification is shown
+  const [selectedMember, setSelectedMember] =
+    useState(null);
+
+
+  // ==========================================
+  // FETCH MANAGEMENT MEMBERS
+  // ==========================================
+
+  const fetchManagementMembers = async () => {
+    setLoadingManagement(true);
+
+    try {
+      const snapshot = await getDocs(
+        collection(db, "management")
+      );
+
+      const members = snapshot.docs
+        .map((item) => ({
+          id: item.id,
+          ...item.data(),
+        }))
+        .sort(
+          (a, b) =>
+            (Number(a.order) || 0) -
+            (Number(b.order) || 0)
+        );
+
+      setManagementMembers(members);
+
+    } catch (error) {
+      console.error(
+        "Error fetching management members:",
+        error
+      );
+
+    } finally {
+      setLoadingManagement(false);
+    }
+  };
+
+
+  // ==========================================
+  // OPEN MANAGEMENT
+  // ==========================================
+
+  const openManagement = () => {
+    setShowManagement(true);
+    setSelectedMember(null);
+    fetchManagementMembers();
+  };
+
+
+  // ==========================================
+  // CLOSE MANAGEMENT
+  // ==========================================
+
+  const closeManagement = () => {
+    setShowManagement(false);
+    setSelectedMember(null);
+  };
+
+
+  // ==========================================
+  // RETURN
+  // ==========================================
 
   return (
     <>
@@ -32,15 +91,22 @@ function About() {
           ABOUT SECTION
       ========================= */}
 
-      <section id="about" className="about">
+      <section
+        id="about"
+        className="about"
+      >
+
         <div className="about-container">
 
           <div className="about-image">
+
             <img
               src={collegeImage}
               alt="Shree Narayana Guru Composite PU College"
             />
+
           </div>
+
 
           <div className="about-content">
 
@@ -50,21 +116,30 @@ function About() {
 
             <h2>
               Shree Narayana Guru
-              <span> Composite PU College</span>
+              <span>
+                {" "}Composite PU College
+              </span>
             </h2>
 
             <p>
-              Shree Narayana Guru Composite PU College, Mulki, is committed
-              to providing quality education and creating a strong foundation
-              for students to achieve their academic and personal goals.
+              Shree Narayana Guru Composite PU College,
+              Mulki, is committed to providing quality
+              education and creating a strong foundation
+              for students to achieve their academic and
+              personal goals.
             </p>
 
             <p>
-              Our college focuses on academic excellence, discipline,
-              character development and the overall growth of every student.
-              We believe in creating an environment where students can learn,
-              explore their potential and prepare confidently for their future.
+              Our college focuses on academic excellence,
+              discipline, character development and the
+              overall growth of every student. We believe
+              in creating an environment where students
+              can learn, explore their potential and
+              prepare confidently for their future.
             </p>
+
+
+            {/* HIGHLIGHTS */}
 
             <div className="about-highlights">
 
@@ -85,11 +160,12 @@ function About() {
 
             </div>
 
-            {/* KNOW MORE BUTTON */}
+
+            {/* KNOW MORE */}
 
             <button
               className="know-more-button"
-              onClick={() => setShowManagement(true)}
+              onClick={openManagement}
             >
               Know More
             </button>
@@ -97,6 +173,7 @@ function About() {
           </div>
 
         </div>
+
       </section>
 
 
@@ -105,6 +182,7 @@ function About() {
       ========================= */}
 
       {showManagement && (
+
         <div className="management-overlay">
 
           <div className="management-popup">
@@ -113,7 +191,7 @@ function About() {
 
             <button
               className="management-close"
-              onClick={() => setShowManagement(false)}
+              onClick={closeManagement}
             >
               ×
             </button>
@@ -132,76 +210,128 @@ function About() {
               </h2>
 
               <p>
-                Meet the people who guide and support the growth,
-                development and administration of our institution.
+                Meet the people who guide and support
+                our institution.
               </p>
 
             </div>
 
 
-            {/* MANAGEMENT MEMBERS */}
+            {/* =========================
+                LOADING
+            ========================= */}
 
-            <div className="management-grid">
+            {loadingManagement ? (
 
-              {managementMembers.map((member, index) => (
+              <div className="management-loading">
+                Loading management...
+              </div>
 
-                <div
-                  className="management-card"
-                  key={index}
-                >
+            ) : managementMembers.length === 0 ? (
 
-                  <div className="management-image">
+              <div className="management-empty">
+                No management members available.
+              </div>
 
-                    <div className="person-placeholder">
-                      👤
+            ) : (
+
+              <div className="management-grid">
+
+                {managementMembers.map(
+                  (member) => (
+
+                    <div
+                      className={`management-card ${
+                        selectedMember?.id === member.id
+                          ? "selected"
+                          : ""
+                      }`}
+                      key={member.id}
+                    >
+
+                      {/* =====================
+                          IMAGE
+                      ====================== */}
+
+                      <div
+                        className="management-image clickable"
+                        onClick={() =>
+                          setSelectedMember(member)
+                        }
+                      >
+
+                        {member.image ? (
+
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                          />
+
+                        ) : (
+
+                          <div className="person-placeholder">
+                            👤
+                          </div>
+
+                        )}
+
+                      </div>
+
+
+                      {/* =====================
+                          NAME
+                      ====================== */}
+
+                      <div className="management-info">
+
+                        <h3>
+                          {member.name}
+                        </h3>
+
+                        <h4>
+                          {member.designation}
+                        </h4>
+
+
+                        {/* QUALIFICATION
+                            APPEARS WHEN IMAGE
+                            IS CLICKED */}
+
+                        {selectedMember?.id ===
+                          member.id && (
+
+                          <div className="management-qualification">
+
+                            <span>
+                              Qualification
+                            </span>
+
+                            <p>
+                              {member.qualification ||
+                                "Not provided"}
+                            </p>
+
+                          </div>
+
+                        )}
+
+                      </div>
+
                     </div>
 
-                  </div>
+                  )
+                )}
 
-                  <div className="management-info">
+              </div>
 
-                    <h3>
-                      {member.name}
-                    </h3>
-
-                    <h4>
-                      {member.designation}
-                    </h4>
-
-                    <p>
-                      {member.description}
-                    </p>
-
-                  </div>
-
-                </div>
-
-              ))}
-
-            </div>
-
-
-            {/* MANAGEMENT INFORMATION */}
-
-            <div className="management-note">
-
-              <h3>
-                About the Management
-              </h3>
-
-              <p>
-                Information about the management and governing body
-                of Shree Narayana Guru Composite PU College will be
-                displayed here. This information can be updated
-                through the administration system in the future.
-              </p>
-
-            </div>
+            )}
 
           </div>
 
         </div>
+
       )}
+
     </>
   );
 }

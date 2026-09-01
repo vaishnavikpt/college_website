@@ -1,48 +1,47 @@
-/* =========================
+/* =====================================================
    FACILITIES SECTION
-========================= */
+===================================================== */
 
 .facilities {
   padding: 90px 8%;
-
   background: #ffffff;
 }
 
 .facilities-container {
   max-width: 1200px;
-
-  margin: auto;
+  margin: 0 auto;
 }
 
 
-/* =========================
+/* =====================================================
    SECTION HEADING
-========================= */
+===================================================== */
 
 .facilities-heading {
-  max-width: 750px;
-
-  margin: 0 auto 65px;
-
   text-align: center;
+  max-width: 750px;
+  margin: 0 auto 60px;
 }
 
 .facilities-small-title {
+  margin: 0 0 10px;
+
   color: #d97706;
 
-  font-size: 14px;
-
+  font-size: 13px;
   font-weight: 700;
 
   letter-spacing: 3px;
-
-  margin-bottom: 12px;
+  text-transform: uppercase;
 }
 
 .facilities-heading h2 {
-  margin: 0 0 18px;
+  margin: 0 0 15px;
 
-  font-size: 40px;
+  font-size: 38px;
+  font-weight: 700;
+
+  line-height: 1.2;
 
   color: #222;
 }
@@ -51,25 +50,37 @@
   color: #d97706;
 }
 
-.facilities-heading > p {
+.facilities-heading > p:last-child {
   margin: 0;
 
   color: #666;
 
-  font-size: 16px;
-
+  font-size: 15px;
   line-height: 1.8;
 }
 
 
-/* =========================
-   FACILITY SECTION
-========================= */
+/* =====================================================
+   FACILITIES LIST
+===================================================== */
+
+.facilities-list {
+  width: 100%;
+}
+
+
+/* =====================================================
+   INDIVIDUAL FACILITY
+===================================================== */
 
 .facility-section {
-  padding: 40px 0;
+  padding: 35px 0;
 
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.facility-section:first-child {
+  padding-top: 0;
 }
 
 .facility-section:last-child {
@@ -77,111 +88,143 @@
 }
 
 
-/* =========================
+/* =====================================================
    FACILITY HEADER
-========================= */
+===================================================== */
 
 .facility-header {
   display: flex;
 
   align-items: flex-start;
 
-  gap: 22px;
+  gap: 18px;
 
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
+
+
+/* =====================================================
+   NUMBER
+===================================================== */
 
 .facility-number {
   flex-shrink: 0;
 
-  width: 55px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  background: #faf7f2;
-
-  border: 1px solid #eadfce;
+  border: 1px solid #eadbc7;
 
   border-radius: 50%;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: #d97706;
 
-  font-size: 16px;
+  background: #fffdf9;
 
+  font-size: 13px;
   font-weight: 700;
 }
 
-.facility-header h3 {
-  margin: 0 0 8px;
 
-  font-size: 28px;
+/* =====================================================
+   FACILITY TITLE + DESCRIPTION
+===================================================== */
+
+.facility-header h3 {
+  margin: 0 0 6px;
 
   color: #222;
+
+  font-size: 23px;
+  font-weight: 700;
+
+  line-height: 1.3;
 }
 
 .facility-header p {
-  max-width: 850px;
-
   margin: 0;
 
   color: #666;
 
-  font-size: 15px;
+  font-size: 14px;
 
   line-height: 1.7;
 }
 
 
-/* =========================
-   FACILITY GALLERY
-========================= */
+/* =====================================================
+   IMAGE GALLERY
+===================================================== */
 
 .facility-gallery {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 250px);
 
-  gap: 18px;
+  gap: 20px;
+
+  justify-content: center;
+
+  margin-top: 10px;
 }
 
+
+/* =====================================================
+   INDIVIDUAL IMAGE
+===================================================== */
+
 .facility-image {
-  height: 230px;
+  width: 250px;
+  height: 170px;
 
   overflow: hidden;
 
   border-radius: 8px;
 
-  background: #f5f2ed;
+  background: #f5f1eb;
 
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.facility-image:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.13);
 }
 
 .facility-image img {
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
-
   display: block;
+
+  object-fit: cover;
 
   transition: transform 0.4s ease;
 }
 
 .facility-image:hover img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 
-/* =========================
-   NO IMAGE PLACEHOLDER
-========================= */
+/* =====================================================
+   NO IMAGES
+===================================================== */
 
 .facility-no-images {
-  min-height: 180px;
+  width: 100%;
+
+  min-height: 150px;
 
   display: flex;
 
@@ -192,15 +235,17 @@
 
   background: #faf7f2;
 
-  border: 1px dashed #d8cfc2;
+  border: 1px dashed #dfcdb5;
 
   border-radius: 8px;
+
+  text-align: center;
 }
 
 .facility-placeholder-icon {
-  font-size: 45px;
+  margin-bottom: 8px;
 
-  margin-bottom: 10px;
+  font-size: 28px;
 }
 
 .facility-no-images p {
@@ -208,62 +253,429 @@
 
   color: #888;
 
-  font-size: 14px;
+  font-size: 13px;
 }
 
 
-/* =========================
+/* =====================================================
    TABLET
-========================= */
+===================================================== */
 
 @media (max-width: 900px) {
 
   .facilities {
-    padding: 70px 6%;
+    padding: 75px 6%;
+  }
+
+  .facilities-heading {
+    margin-bottom: 45px;
+  }
+
+  .facilities-heading h2 {
+    font-size: 34px;
   }
 
   .facility-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 250px);
+
+    gap: 18px;
   }
 
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* =====================================================
+   SMALL TABLET
+===================================================== */
 
 @media (max-width: 600px) {
 
   .facilities {
-    padding: 60px 6%;
+    padding: 60px 5%;
+  }
+
+  .facilities-heading {
+    margin-bottom: 40px;
   }
 
   .facilities-heading h2 {
-    font-size: 32px;
+    font-size: 30px;
   }
 
-  .facility-header {
-    gap: 15px;
-  }
-
-  .facility-number {
-    width: 45px;
-    height: 45px;
-
+  .facilities-heading > p:last-child {
     font-size: 14px;
   }
 
+  .facility-section {
+    padding: 30px 0;
+  }
+
+  .facility-header {
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .facility-number {
+    width: 36px;
+    height: 36px;
+
+    font-size: 12px;
+  }
+
   .facility-header h3 {
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .facility-header p {
+    font-size: 13px;
   }
 
   .facility-gallery {
     grid-template-columns: 1fr;
+
+    gap: 15px;
+
+    justify-items: center;
   }
 
   .facility-image {
-    height: 240px;
+    width: 100%;
+    max-width: 350px;
+
+    height: 210px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .facilities {
+    padding: 50px 5%;
+  }
+
+  .facilities-heading h2 {
+    font-size: 27px;
+  }
+
+  .facility-header h3 {
+    font-size: 18px;
+  }
+
+  .facility-image {
+    max-width: 100%;
+    height: 190px;
+  }
+
+}
+
+/* =====================================================
+   FACILITY IMAGE LIGHTBOX
+===================================================== */
+
+.facility-lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.78);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+}
+
+
+/* =====================================================
+   LIGHTBOX CONTENT
+===================================================== */
+
+.facility-lightbox-content {
+  position: relative;
+
+  width: 90%;
+
+  max-width: 900px;
+
+  max-height: 90vh;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  border-radius: 10px;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.facility-lightbox-close {
+  position: absolute;
+
+  top: 12px;
+  right: 15px;
+
+  width: 38px;
+  height: 38px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f3f3f3;
+
+  color: #333;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition: 0.3s ease;
+}
+
+.facility-lightbox-close:hover {
+  background: #d97706;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   LIGHTBOX TITLE
+===================================================== */
+
+.facility-lightbox-title {
+  text-align: center;
+
+  padding: 5px 45px 18px;
+}
+
+.facility-lightbox-title h3 {
+  margin: 0 0 5px;
+
+  color: #222;
+
+  font-size: 22px;
+}
+
+.facility-lightbox-title p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   IMAGE AREA
+===================================================== */
+
+.facility-lightbox-image-area {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 400px;
+
+  background: #f7f4ef;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   POPUP IMAGE
+===================================================== */
+
+.facility-lightbox-image {
+  display: block;
+
+  max-width: 100%;
+
+  max-height: 60vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 5px;
+}
+
+
+/* =====================================================
+   PREVIOUS / NEXT BUTTONS
+===================================================== */
+
+.facility-lightbox-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  color: #333;
+
+  font-size: 38px;
+
+  line-height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+
+  transition: 0.3s ease;
+
+  z-index: 3;
+}
+
+.facility-lightbox-arrow:hover:not(:disabled) {
+  background: #d97706;
+
+  color: #ffffff;
+
+  transform:
+    translateY(-50%)
+    scale(1.05);
+}
+
+.facility-lightbox-arrow:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+.facility-lightbox-prev {
+  left: 18px;
+}
+
+.facility-lightbox-next {
+  right: 18px;
+}
+
+
+/* =====================================================
+   IMAGE COUNTER
+===================================================== */
+
+.facility-lightbox-counter {
+  text-align: center;
+
+  margin-top: 15px;
+
+  color: #666;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   MAKE IMAGES CLICKABLE
+===================================================== */
+
+.facility-image {
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   MOBILE LIGHTBOX
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .facility-lightbox {
+    padding: 15px;
+  }
+
+  .facility-lightbox-content {
+    width: 95%;
+
+    padding: 18px;
+
+    border-radius: 8px;
+  }
+
+  .facility-lightbox-title {
+    padding: 5px 35px 15px;
+  }
+
+  .facility-lightbox-title h3 {
+    font-size: 19px;
+  }
+
+  .facility-lightbox-image-area {
+    min-height: 280px;
+  }
+
+  .facility-lightbox-image {
+    max-height: 55vh;
+
+    max-width: 90%;
+  }
+
+  .facility-lightbox-arrow {
+    width: 40px;
+    height: 40px;
+
+    font-size: 30px;
+  }
+
+  .facility-lightbox-prev {
+    left: 8px;
+  }
+
+  .facility-lightbox-next {
+    right: 8px;
+  }
+
+  .facility-lightbox-close {
+    width: 34px;
+    height: 34px;
+
+    font-size: 24px;
   }
 
 }

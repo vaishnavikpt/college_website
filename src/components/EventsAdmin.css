@@ -1,0 +1,689 @@
+/* =====================================================
+   EVENTS ADMIN SECTION
+===================================================== */
+
+.events-admin {
+  min-height: 100vh;
+
+  padding: 70px 6%;
+
+  background: #faf7f2;
+}
+
+.events-admin-container {
+  max-width: 1250px;
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.events-admin-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 45px;
+}
+
+.events-admin-small-title {
+  margin: 0 0 10px;
+
+  color: #d97706;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.events-admin-header h1 {
+  margin: 0 0 12px;
+
+  color: #222;
+
+  font-size: 40px;
+
+  line-height: 1.2;
+}
+
+.events-admin-header h1 span {
+  color: #d97706;
+}
+
+.events-admin-header > div > p:last-child {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.events-back-btn {
+  flex-shrink: 0;
+
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #d97706;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.events-back-btn:hover {
+  background: #b45309;
+
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.events-admin-form-card {
+  padding: 35px;
+
+  margin-bottom: 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.events-admin-form-card h2 {
+  margin: 0 0 28px;
+
+  color: #222;
+
+  font-size: 25px;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.events-form-group {
+  margin-bottom: 22px;
+}
+
+.events-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #333;
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.events-form-group input[type="text"],
+.events-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 5px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #333;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition: 0.3s ease;
+}
+
+.events-form-group input[type="text"]:focus,
+.events-form-group textarea:focus {
+  border-color: #d97706;
+
+  box-shadow:
+    0 0 0 3px rgba(217, 119, 6, 0.08);
+}
+
+.events-form-group textarea {
+  resize: vertical;
+
+  min-height: 120px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   FILE INPUT
+===================================================== */
+
+.events-form-group input[type="file"] {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  border: 1px dashed #d8c4aa;
+
+  border-radius: 6px;
+
+  background: #faf7f2;
+
+  color: #555;
+
+  font-size: 14px;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   IMAGE HELP TEXT
+===================================================== */
+
+.events-image-help {
+  margin: 8px 0 0;
+
+  color: #888;
+
+  font-size: 12px;
+}
+
+.events-selected-count {
+  display: inline-block;
+
+  margin: 10px 0 0;
+
+  padding: 7px 12px;
+
+  border-radius: 4px;
+
+  background: #fff4e5;
+
+  color: #b45309;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+===================================================== */
+
+.events-form-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.events-form-buttons > button {
+  padding: 12px 25px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #d97706;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.events-form-buttons > button:hover:not(:disabled) {
+  background: #b45309;
+
+  transform: translateY(-1px);
+}
+
+.events-form-buttons > button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   CANCEL BUTTON
+===================================================== */
+
+.events-form-buttons .events-cancel-btn {
+  background: #eeeeee;
+
+  color: #444;
+}
+
+.events-form-buttons .events-cancel-btn:hover {
+  background: #dddddd;
+
+  color: #222;
+}
+
+
+/* =====================================================
+   EXISTING EVENTS CARD
+===================================================== */
+
+.events-existing-card {
+  padding: 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.events-existing-card h2 {
+  margin: 0 0 28px;
+
+  color: #222;
+
+  font-size: 25px;
+}
+
+
+/* =====================================================
+   TABLE WRAPPER
+===================================================== */
+
+.events-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #eeeeee;
+
+  border-radius: 7px;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.events-table {
+  width: 100%;
+
+  min-width: 950px;
+
+  border-collapse: collapse;
+}
+
+.events-table th {
+  padding: 15px 14px;
+
+  background: #faf7f2;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  color: #333;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  white-space: nowrap;
+}
+
+.events-table td {
+  padding: 16px 14px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  color: #555;
+
+  font-size: 13px;
+
+  vertical-align: middle;
+}
+
+.events-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.events-table tbody tr:hover {
+  background: #fffdf9;
+}
+
+
+/* =====================================================
+   ORDER
+===================================================== */
+
+.events-order {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: #fff4e5;
+
+  color: #d97706;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   EVENT THUMBNAILS
+===================================================== */
+
+.events-thumbnails {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  min-width: 145px;
+}
+
+.events-thumbnails img {
+  width: 48px;
+  height: 42px;
+
+  object-fit: cover;
+
+  border-radius: 4px;
+
+  border: 1px solid #eeeeee;
+
+  background: #f5f5f5;
+}
+
+.events-thumbnails span {
+  color: #999;
+
+  font-size: 12px;
+}
+
+.events-thumbnails + small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #d97706;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   EVENT NAME
+===================================================== */
+
+.events-table td strong {
+  display: block;
+
+  min-width: 150px;
+
+  color: #222;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.events-description {
+  max-width: 300px;
+
+  margin: 0;
+
+  color: #666;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.events-actions {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  min-width: 190px;
+}
+
+.events-actions button {
+  padding: 7px 11px;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 4px;
+
+  background: #ffffff;
+
+  color: #444;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.events-actions button:hover:not(:disabled) {
+  border-color: #d97706;
+
+  background: #fff7ed;
+
+  color: #b45309;
+}
+
+.events-actions button:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.events-actions .events-delete-btn {
+  border-color: #e5bdbd;
+
+  color: #b42318;
+}
+
+.events-actions .events-delete-btn:hover {
+  border-color: #b42318;
+
+  background: #fff1f1;
+
+  color: #9f1d16;
+}
+
+
+/* =====================================================
+   LOADING / EMPTY
+===================================================== */
+
+.events-loading,
+.events-empty {
+  margin: 0;
+
+  padding: 35px;
+
+  text-align: center;
+
+  color: #777;
+
+  font-size: 14px;
+
+  background: #faf7f2;
+
+  border-radius: 6px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .events-admin {
+    padding: 60px 5%;
+  }
+
+  .events-admin-header {
+    align-items: flex-start;
+  }
+
+  .events-admin-header h1 {
+    font-size: 34px;
+  }
+
+  .events-admin-form-card,
+  .events-existing-card {
+    padding: 28px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .events-admin {
+    padding: 45px 4%;
+  }
+
+  .events-admin-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .events-admin-header h1 {
+    font-size: 30px;
+  }
+
+  .events-admin-header > div > p:last-child {
+    font-size: 13px;
+  }
+
+  .events-back-btn {
+    padding: 10px 20px;
+  }
+
+  .events-admin-form-card,
+  .events-existing-card {
+    padding: 20px;
+
+    border-radius: 8px;
+  }
+
+  .events-admin-form-card h2,
+  .events-existing-card h2 {
+    font-size: 21px;
+  }
+
+  .events-form-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .events-form-buttons > button {
+    width: 100%;
+  }
+
+  .events-table-wrapper {
+    border-radius: 5px;
+  }
+
+}

@@ -1,0 +1,385 @@
+/* ================================
+   MANAGEMENT ADMIN PAGE
+================================ */
+
+.management-admin {
+  min-height: 100vh;
+  background: #f7f5f1;
+  padding: 50px 25px 70px;
+}
+
+.management-admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+.management-admin-header {
+  margin-bottom: 30px;
+}
+
+.management-admin-small-title {
+  color: #d97706;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.management-admin-header h1 {
+  margin: 0 0 10px;
+  color: #222;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.management-admin-header p {
+  margin: 0;
+  color: #777;
+  font-size: 16px;
+}
+
+
+/* ================================
+   FORM CARD
+================================ */
+
+.management-form-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 35px;
+  margin-bottom: 35px;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.management-form-card h2 {
+  margin: 0 0 28px;
+  color: #222;
+  font-size: 24px;
+}
+
+
+/* ================================
+   FORM
+================================ */
+
+.management-form-card form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 25px;
+}
+
+.management-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.management-form-group label {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.management-form-group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #d7d7d7;
+  border-radius: 7px;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.management-form-group input:focus {
+  outline: none;
+  border-color: #d97706;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+}
+
+
+/* File input */
+
+.management-form-group input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+  background: #fafafa;
+}
+
+
+/* ================================
+   FORM BUTTONS
+================================ */
+
+.management-form-buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.management-add-btn,
+.management-cancel-btn {
+  border: none;
+  border-radius: 7px;
+  padding: 13px 25px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.management-add-btn {
+  background: #d97706;
+  color: #ffffff;
+}
+
+.management-add-btn:hover {
+  background: #b45309;
+  transform: translateY(-1px);
+}
+
+.management-add-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.management-cancel-btn {
+  background: #eeeeee;
+  color: #333;
+}
+
+.management-cancel-btn:hover {
+  background: #dddddd;
+}
+
+
+/* ================================
+   TABLE CARD
+================================ */
+
+.management-table-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 35px;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.management-table-card h2 {
+  margin: 0 0 25px;
+  color: #222;
+  font-size: 24px;
+}
+
+
+/* ================================
+   TABLE
+================================ */
+
+.management-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.management-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 750px;
+}
+
+.management-table th {
+  background: #f8f4ed;
+  color: #333;
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 2px solid #e7e0d5;
+}
+
+.management-table td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #eeeeee;
+  color: #444;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+.management-table tbody tr:hover {
+  background: #fffaf4;
+}
+
+
+/* ================================
+   MANAGEMENT PHOTO
+================================ */
+
+.management-table-image {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+.management-no-image {
+  width: 65px;
+  height: 65px;
+  border-radius: 8px;
+  background: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 11px;
+  text-align: center;
+}
+
+
+/* ================================
+   ACTION BUTTONS
+================================ */
+
+.management-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.management-actions button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+/* Edit */
+
+.management-edit-btn {
+  background: #eeeeee;
+  color: #333;
+}
+
+.management-edit-btn:hover {
+  background: #dcdcdc;
+}
+
+
+/* Delete */
+
+.management-delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.management-delete-btn:hover {
+  background: #fecaca;
+}
+
+
+/* Move */
+
+.management-move-btn {
+  background: #fff3cd;
+  color: #92400e;
+  min-width: 34px;
+  font-size: 16px !important;
+}
+
+.management-move-btn:hover {
+  background: #fde7a8;
+}
+
+.management-move-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+
+/* ================================
+   EMPTY TABLE
+================================ */
+
+.management-empty {
+  text-align: center !important;
+  padding: 40px !important;
+  color: #888 !important;
+  font-size: 15px;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .management-admin {
+    padding: 35px 15px 50px;
+  }
+
+  .management-admin-header h1 {
+    font-size: 30px;
+  }
+
+  .management-form-card,
+  .management-table-card {
+    padding: 22px;
+  }
+
+  .management-form-card form {
+    grid-template-columns: 1fr;
+  }
+
+  .management-form-buttons {
+    grid-column: auto;
+  }
+
+  .management-table {
+    min-width: 700px;
+  }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+
+  .management-admin-header h1 {
+    font-size: 27px;
+  }
+
+  .management-form-card h2,
+  .management-table-card h2 {
+    font-size: 20px;
+  }
+
+  .management-form-buttons {
+    flex-direction: column;
+  }
+
+  .management-add-btn,
+  .management-cancel-btn {
+    width: 100%;
+  }
+
+}

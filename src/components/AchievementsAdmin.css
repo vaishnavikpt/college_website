@@ -1,0 +1,621 @@
+/* =====================================================
+   ACHIEVEMENTS ADMIN
+===================================================== */
+
+.achievements-admin {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8f6f2;
+  padding: 90px 30px 60px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1d1d1d;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.achievements-admin-container {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.achievements-admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  margin-bottom: 45px;
+}
+
+
+.achievements-admin-small-title {
+  margin: 0 0 10px;
+  color: #d97700;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+
+.achievements-admin-header h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+
+.achievements-admin-header h1 span {
+  color: #d97700;
+}
+
+
+.achievements-admin-header > div > p:last-child {
+  margin: 0;
+  color: #5d6670;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.achievements-back-btn {
+  flex-shrink: 0;
+  border: none;
+  background: #d97700;
+  color: white;
+  padding: 13px 23px;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+
+.achievements-back-btn:hover {
+  background: #b86100;
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.achievements-admin-form-card {
+  background: white;
+  border: 1px solid #e6e0d8;
+  border-radius: 14px;
+  padding: 38px 42px;
+  margin-bottom: 45px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+.achievements-admin-form-card h2 {
+  margin: 0 0 30px;
+  text-align: center;
+  font-size: 27px;
+  color: #222;
+}
+
+
+/* =====================================================
+   FORM GROUP
+===================================================== */
+
+.achievements-form-group {
+  margin-bottom: 25px;
+}
+
+
+.achievements-form-group label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #292929;
+}
+
+
+.achievements-form-group input[type="text"],
+.achievements-form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
+  padding: 13px 15px;
+  background: #fff;
+  color: #222;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+
+.achievements-form-group input[type="text"] {
+  height: 48px;
+}
+
+
+.achievements-form-group textarea {
+  min-height: 125px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+
+.achievements-form-group input[type="text"]:focus,
+.achievements-form-group textarea:focus {
+  border-color: #d97700;
+  box-shadow: 0 0 0 3px rgba(217, 119, 0, 0.12);
+}
+
+
+/* =====================================================
+   FILE INPUT
+===================================================== */
+
+.achievements-form-group input[type="file"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px;
+  border: 1px solid #d8d8d8;
+  border-radius: 7px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.achievements-form-group input[type="file"]::file-selector-button {
+  border: none;
+  background: #d97700;
+  color: white;
+  padding: 9px 15px;
+  margin-right: 12px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+.achievements-form-group input[type="file"]::file-selector-button:hover {
+  background: #b86100;
+}
+
+
+/* =====================================================
+   IMAGE HELP
+===================================================== */
+
+.achievements-image-help {
+  margin: 9px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+
+.achievements-selected-count {
+  margin: 12px 0 0;
+  color: #d97700;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+===================================================== */
+
+.achievements-form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+
+.achievements-form-buttons button {
+  border: none;
+  border-radius: 7px;
+  padding: 13px 24px;
+  background: #d97700;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+
+.achievements-form-buttons button:hover:not(:disabled) {
+  background: #b86100;
+  transform: translateY(-1px);
+}
+
+
+.achievements-form-buttons button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+.achievements-form-buttons .achievements-cancel-btn {
+  background: #666;
+}
+
+
+.achievements-form-buttons .achievements-cancel-btn:hover {
+  background: #4d4d4d;
+}
+
+
+/* =====================================================
+   EXISTING ACHIEVEMENTS CARD
+===================================================== */
+
+.achievements-existing-card {
+  background: white;
+  border: 1px solid #e6e0d8;
+  border-radius: 14px;
+  padding: 35px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+.achievements-existing-card h2 {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 27px;
+  color: #222;
+}
+
+
+/* =====================================================
+   TABLE WRAPPER
+===================================================== */
+
+.achievements-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.achievements-table {
+  width: 100%;
+  min-width: 950px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+
+.achievements-table th {
+  background: #f5f1eb;
+  color: #292929;
+  padding: 15px 12px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 2px solid #e2ddd6;
+}
+
+
+.achievements-table td {
+  padding: 18px 12px;
+  vertical-align: middle;
+  border-bottom: 1px solid #ebe7e1;
+  font-size: 14px;
+}
+
+
+/* COLUMN WIDTHS */
+
+.achievements-table th:nth-child(1),
+.achievements-table td:nth-child(1) {
+  width: 65px;
+  text-align: center;
+}
+
+
+.achievements-table th:nth-child(2),
+.achievements-table td:nth-child(2) {
+  width: 220px;
+}
+
+
+.achievements-table th:nth-child(3),
+.achievements-table td:nth-child(3) {
+  width: 190px;
+}
+
+
+.achievements-table th:nth-child(4),
+.achievements-table td:nth-child(4) {
+  width: 300px;
+}
+
+
+.achievements-table th:nth-child(5),
+.achievements-table td:nth-child(5) {
+  width: 180px;
+}
+
+
+/* =====================================================
+   ORDER
+===================================================== */
+
+.achievements-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #faf7f2;
+  border: 1px solid #eadfce;
+  color: #d97700;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   THUMBNAILS
+===================================================== */
+
+.achievements-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+}
+
+
+.achievements-thumbnails img {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: block;
+}
+
+
+.achievements-thumbnails img:hover {
+  transform: scale(1.04);
+}
+
+
+.achievements-table td small {
+  display: block;
+  margin-top: 7px;
+  color: #777;
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.achievements-table td strong {
+  display: block;
+  color: #222;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.achievements-description {
+  margin: 0;
+  color: #606060;
+  line-height: 1.55;
+  font-size: 14px;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.achievements-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+
+.achievements-actions button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 11px;
+  background: #d97700;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+
+.achievements-actions button:hover:not(:disabled) {
+  background: #b86100;
+}
+
+
+.achievements-actions button:disabled {
+  background: #d3d3d3;
+  color: #888;
+  cursor: not-allowed;
+}
+
+
+.achievements-actions .achievements-delete-btn {
+  background: #b33a32;
+}
+
+
+.achievements-actions .achievements-delete-btn:hover {
+  background: #912d27;
+}
+
+
+/* =====================================================
+   LOADING / EMPTY
+===================================================== */
+
+.achievements-loading,
+.achievements-empty {
+  text-align: center;
+  padding: 45px 20px;
+  margin: 0;
+  color: #777;
+  font-size: 16px;
+}
+
+
+.achievements-empty {
+  background: #faf9f7;
+  border-radius: 8px;
+}
+
+
+/* =====================================================
+   TABLE ROW HOVER
+===================================================== */
+
+.achievements-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+
+.achievements-table tbody tr:hover {
+  background: #fcfaf7;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .achievements-admin {
+    padding: 75px 20px 45px;
+  }
+
+
+  .achievements-admin-header {
+    flex-direction: column;
+  }
+
+
+  .achievements-back-btn {
+    align-self: flex-start;
+  }
+
+
+  .achievements-admin-header h1 {
+    font-size: 34px;
+  }
+
+
+  .achievements-admin-form-card,
+  .achievements-existing-card {
+    padding: 28px 22px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .achievements-admin {
+    padding: 65px 14px 35px;
+  }
+
+
+  .achievements-admin-header {
+    margin-bottom: 30px;
+  }
+
+
+  .achievements-admin-small-title {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+
+  .achievements-admin-header h1 {
+    font-size: 29px;
+  }
+
+
+  .achievements-admin-header > div > p:last-child {
+    font-size: 14px;
+  }
+
+
+  .achievements-back-btn {
+    width: 100%;
+  }
+
+
+  .achievements-admin-form-card,
+  .achievements-existing-card {
+    padding: 22px 16px;
+    border-radius: 10px;
+  }
+
+
+  .achievements-admin-form-card h2,
+  .achievements-existing-card h2 {
+    font-size: 23px;
+  }
+
+
+  .achievements-form-buttons {
+    flex-direction: column;
+  }
+
+
+  .achievements-form-buttons button {
+    width: 100%;
+  }
+
+
+  .achievements-table {
+    min-width: 900px;
+  }
+
+}

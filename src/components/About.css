@@ -492,3 +492,389 @@
   }
 
 }
+
+/* ==========================================
+   MANAGEMENT POPUP - FINAL
+========================================== */
+
+.management-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: rgba(0, 0, 0, 0.70);
+}
+
+
+/* POPUP */
+
+.management-popup {
+  position: relative;
+
+  width: 100%;
+  max-width: 1050px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 45px;
+
+  background: #ffffff;
+
+  border-radius: 12px;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* CLOSE */
+
+.management-close {
+  position: absolute;
+
+  top: 15px;
+  right: 18px;
+
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  color: #333;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.management-close:hover {
+  background: #d97706;
+  color: #fff;
+}
+
+
+/* HEADING */
+
+.management-popup .management-heading {
+  text-align: center;
+
+  max-width: 700px;
+
+  margin: 0 auto 35px;
+}
+
+.management-popup .management-heading h2 {
+  margin: 0 0 12px;
+
+  font-size: 38px;
+
+  color: #222;
+}
+
+.management-popup .management-heading h2 span {
+  color: #d97706;
+}
+
+.management-popup
+.management-heading
+.management-small-title {
+  color: #d97706;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 10px;
+}
+
+.management-popup
+.management-heading
+> p:last-child {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   THREE CARDS IN ONE ROW
+========================================== */
+
+.management-popup .management-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+
+  align-items: start;
+}
+
+
+/* CARD */
+
+.management-popup .management-card {
+  overflow: hidden;
+
+  background: #fff;
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 10px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+  text-align: center;
+
+  transition: 0.3s ease;
+}
+
+.management-popup .management-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+
+/* SELECTED CARD */
+
+.management-popup .management-card.selected {
+  border: 2px solid #d97706;
+}
+
+
+/* ==========================================
+   PERSON IMAGE
+========================================== */
+
+.management-popup .management-image {
+  width: 100%;
+  height: 260px;
+
+  overflow: hidden;
+
+  background: #f7f4ef;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.management-popup .management-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.3s ease;
+}
+
+.management-popup .management-image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* PLACEHOLDER */
+
+.management-popup .person-placeholder {
+  width: 120px;
+  height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  font-size: 60px;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================
+   NAME + DESIGNATION
+========================================== */
+
+.management-popup .management-info {
+  padding: 20px 15px 22px;
+
+  text-align: center;
+}
+
+.management-popup .management-info h3 {
+  margin: 0 0 7px;
+
+  font-size: 20px;
+
+  color: #222;
+}
+
+.management-popup .management-info h4 {
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #d97706;
+}
+
+
+/* ==========================================
+   QUALIFICATION
+   APPEARS AFTER IMAGE CLICK
+========================================== */
+
+.management-qualification {
+  margin-top: 15px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #eeeeee;
+
+  animation: qualificationAppear 0.25s ease;
+}
+
+.management-qualification span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #999;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.management-qualification p {
+  margin: 0;
+
+  color: #444;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+@keyframes qualificationAppear {
+
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ==========================================
+   HIDE OLD DESCRIPTION
+========================================== */
+
+.management-popup .management-info > p {
+  display: none;
+}
+
+
+/* ==========================================
+   LOADING / EMPTY
+========================================== */
+
+.management-loading,
+.management-empty {
+  padding: 40px 20px;
+
+  text-align: center;
+
+  color: #666;
+
+  font-size: 15px;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .management-popup {
+    padding: 40px 25px;
+  }
+
+  .management-popup .management-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+  .management-overlay {
+    padding: 12px;
+  }
+
+  .management-popup {
+    max-height: 94vh;
+
+    padding: 40px 15px 25px;
+  }
+
+  .management-popup .management-heading h2 {
+    font-size: 29px;
+  }
+
+  .management-popup .management-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .management-popup .management-image {
+    height: 260px;
+  }
+
+}
